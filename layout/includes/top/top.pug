@@ -1,0 +1,50 @@
+- let home_top_config = theme.home_top
+- let { title, subTitle, siteText } = home_top_config
+if home_top_config.enable
+  #home_top
+    .swiper_container_card(style='height: auto;width: 100%')
+      #bannerGroup
+        #random-banner
+          .banners-title
+            .banners-title-big=title
+            .banners-title-big=subTitle
+            .banners-title-small=siteText
+          include ../anzhiyu/tags-group-all.pug
+
+          a#random-hover(href='javascript:toRandomPost()')
+            i.anzhiyufont.anzhiyu-icon-paper-plane(style='margin-left:10px')
+            div(style='margin-left:10px') 随便逛逛
+              i.anzhiyufont.anzhiyu-icon-arrow-right(style='margin-left:10px')
+        .categoryGroup
+          each item in home_top_config.category
+            .categoryItem(style=`box-shadow:${item.shadow}`)
+              a.categoryButton(onclick=`pjax.loadUrl("${item.path}");` href='javascript:void(0);' class=`${item.class}`)
+                span.categoryButtonText=item.name
+                if (item.icon.startsWith("fa"))
+                  i(class=`${item.icon}`)
+                else if (item.icon.startsWith("icon"))
+                  svg.icon(aria-hidden="true")
+                    use(xlink:href=`#`+ item.icon)
+                else if (item.icon.startsWith("anzhiyu"))
+                  i.anzhiyufont(class=`${item.icon}`)
+      if theme.home_top.swiper.enable
+        #swiper_container_blog
+          include sticky.pug
+      else 
+        .topGroup
+          - let top_group_list = sort_attr_post("top_group_list").splice(0, 6)
+          - let top_group_banner_tips = theme.home_top.banner.tips
+          - let top_group_banner_title = theme.home_top.banner.title
+          - let top_group_banner_image = theme.home_top.banner.image
+          - let top_group_banner_link = url_for(theme.home_top.banner.link)
+          a#todayCard.todayCard(href=top_group_banner_link, style='z-index: 1;')
+            .todayCard-info
+              .todayCard-tips=top_group_banner_tips
+              .todayCard-title=top_group_banner_title
+            .todayCard-cover(style=`background: url(${top_group_banner_image}) no-repeat center /cover`)
+            .banner-button-group
+              .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
+                i.anzhiyufont.anzhiyu-icon-arrow-circle-right
+                span.banner-button-text 更多推荐
+        
+        link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)
