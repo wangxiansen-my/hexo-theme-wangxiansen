@@ -1,3 +1,4 @@
+# 目录
 menu:
   文章:
     隧道: /archives/ || anzhiyu-icon-box-archive
@@ -30,12 +31,15 @@ nav:
       item:
         - name: 博客
           link: https://www.boysec.cn/
-          icon: /img/favicon.ico
+          icon: https://images.boysec.cn/medias/avatar.jpg
+        - name: 安全文库
+          link: https://wiki.boysec.cn/
+          icon: https://wiki.boysec.cn/image/home.svg
     - title: 项目
       item:
-        - name: 安知鱼图床
-          link: https://image.anheyu.com/
-          icon: https://image.anheyu.com/favicon.ico
+        - name: 软件下载
+          link: /tools.html
+          icon: https://images.boysec.cn/images/202212061116565.png
 
 # Code Blocks (代码相关)
 # --------------------------------------
@@ -173,13 +177,13 @@ error_404:
 post_meta:
   page: # Home Page
     date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: date # date/relative 显示日期还是相对日期
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
     label: true # true or false 显示描述性文字
   post:
     date_type: both # created or updated or both 文章页日期是创建日或者更新日或都显示
-    date_format: date # date/relative 显示日期还是相对日期
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 文章页是否显示分类
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
@@ -188,7 +192,7 @@ post_meta:
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -301,7 +305,7 @@ comments:
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
   lazyload: false
-  count: false # Display comment count in post's top_img
+  count: true # Display comment count in post's top_img
   card_post_count: false # Display comment count in Home Page
 
 # valine
@@ -342,8 +346,8 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: https://twikoo.boysec.cn
-  region: ap-beijing
+  envId: 
+  region: 
   visitor: false
   option:
 
@@ -415,18 +419,18 @@ footer:
     - link: https://hexo.io/ #徽标指向网站链接
       shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
       message: 博客框架为Hexo_v5.4.0 #徽标提示语
-    - link: https://anheyu.com/
+    - link: https://github.com/wangxiansen-my/hexo-theme-wangxiansen
       shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
       message: 本站使用AnZhiYu主题
-    # - link: https://www.dogecloud.com/
-    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
-    #   message: 本站使用多吉云为静态资源提供CDN加速
-    # - link: https://github.com/
-    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
-    #   message: 本站项目由Github托管
-    # - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
-    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
-    #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+    - link: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
+      shields: https://images.boysec.cn/medias/CDN-%E5%8F%88%E6%8B%8D%E4%BA%91-00b6ff.svg
+      message: 本站使用又拍云为静态资源提供CDN加速
+    - link: https://beian.miit.gov.cn/
+      shields: https://images.boysec.cn/medias/beian.svg
+      message: 本站已在工信部备案，备案号京ICP备-2022004840号
+    - link: https://icp.gov.moe/?keyword=20212623
+      shields: https://images.boysec.cn/medias/%E8%90%8CICP%E5%A4%87-20212623.svg
+      message: 本站已加入萌ICP豪华套餐，萌ICP备20212623号
   socialBar:
     enable: false
     centerImg:
@@ -451,48 +455,46 @@ footer:
       #   link: https://v.douyin.com/DwCpMEy/
       #   icon: anzhiyufont anzhiyu-icon-tiktok
   list:
-    enable: false
+    enable: true
     randomFriends: 3
     project:
-      # - title: 服务
-      #   links:
-      #     - title: 51la统计
-      #       link: https://v6.51.la/
-      #     - title: 十年之约
-      #       link: https://www.foreverblog.cn/
-      #     - title: 开往
-      #       link: https://github.com/travellings-link/travellings
-      # - title: 主题
-      #   links:
-      #     - title: 文档
-      #       link: /docs/
-      #     - title: 源码
-      #       link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
-      #     - title: 更新日志
-      #       link: /update/
-      # - title: 导航
-      #   links:
-      #     - title: 即刻短文
-      #       link: /essay/
-      #     - title: 友链文章
-      #       link: /fcircle/
-      #     - title: 留言板
-      #       link: /comments/
-      # - title: 协议
-      #   links:
-      #     - title: 隐私协议
-      #       link: /privacy/
-      #     - title: Cookies
-      #       link: /cookies/
-      #     - title: 版权协议
-      #       link: /copyright/
+      - title: 产品
+        links:
+          - title: 唠唠叨叨
+            link: /essay/
+          - title: 听听音乐
+            link: /music/
+      - title: 运维
+        links:
+          - title: Kubernetes
+            link: /tags/Kubernetes
+          - title: 数据库
+            link: /categories/数据库/
+          - title: 其他
+            link: /categories/
+      - title: 导航
+        links:
+          - title: 标签
+            link: /tags/
+          - title: 分类
+            link: /categories/
+          - title: 留言板
+            link: /comments/
+      - title: 协议
+        links:
+          - title: 隐私协议
+            link: /privacy/
+          - title: Cookies
+            link: /cookies/
+          - title: 版权协议
+            link: /copyright/
 
 # Analysis
 # --------------------------------------
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics: 70a8e51b966bf7bde218a56e25faa91f
+baidu_analytics: 
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -702,12 +704,12 @@ subtitle:
 
 # Loading Animation (加载动画)
 preloader:
-  enable: false
+  enable: true
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
   # else all
-  source: 3
+  source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
   avatar: # 自定义头像
@@ -743,7 +745,7 @@ aside:
     face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
     backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
-    enable: true
+    enable: false
     limit: 5 # if set 0 will show all
     sort: date # date or updated
     sort_order: # Don't modify the setting unless you know how it works
@@ -761,7 +763,7 @@ aside:
       # - Hexo
       # - 前端
   card_archives:
-    enable: true
+    enable: false
     type: monthly # yearly or monthly
     format: MMMM YYYY # eg: YYYY年MM月
     order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
@@ -778,7 +780,7 @@ aside:
 busuanzi:
   site_uv: false
   site_pv: false
-  page_pv: false
+  page_pv: true
 
 # Time difference between publish date and now (网页运行时间)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
@@ -977,11 +979,13 @@ home_top:
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: true
+    swiper_js: https://images.boysec.cn/js/swiper-bundle.min.js
+    swiper_css: https://images.boysec.cn/css/swiper-bundle.min.css
   banner:
     tips: 新品主题
-    title: Theme-AnZhiYu
+    title: Theme-WangXianSen
     image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://blog.anheyu.com/docs
+    link: https://www.boysec.cn
 
 # 朋友圈配置
 friends_vue:
@@ -1034,14 +1038,14 @@ comment_barrage_config:
 nav_music:
   enable: false
   console_widescreen_music: false # 宽屏状态控制台显示音乐而不是标签 enable为true 控制台依然会显示
-  id: 8152976493
+  id: 7555042608
   server: netease
   all_playlist: https://y.qq.com/n/ryqq/playlist/8802438608
 
 # 评论匿名邮箱
 visitorMail:
   enable: true
-  mail: visitor@anheyu.com
+  mail: any@boysec.cn
 
 # ptool 文章底部工具
 ptool:
@@ -1055,11 +1059,73 @@ ptool:
 # 欢迎语配置
 greetingBox:
   enable: false
-
+  default: 晚上好👋
+  list:
+    - greeting: 晚安😴
+      startTime: 0
+      endTime: 5
+    - greeting: 早上好鸭👋, 祝你一天好心情！
+      startTime: 6
+      endTime: 9
+    - greeting: 上午好👋, 状态很好，鼓励一下～
+      startTime: 10
+      endTime: 10
+    - greeting: 11点多啦, 在坚持一下就吃饭啦～
+      startTime: 11
+      endTime: 11
+    - greeting: 午安👋, 宝贝
+      startTime: 12
+      endTime: 14
+    - greeting: 🌈充实的一天辛苦啦！
+      startTime: 14
+      endTime: 18
+    - greeting: 19点喽, 奖励一顿丰盛的大餐吧🍔。
+      startTime: 19
+      endTime: 19
+    - greeting: 晚上好👋, 在属于自己的时间好好放松😌~
+      startTime: 20
+      endTime: 24
 # 快捷键配置
 shortcutKey:
   enable: false
-  delay: 300 # shift按下延时多久开启
+  delay: 100 # 所有键位延时触发而不是立即触发（包括shift，以解决和浏览器键位冲突问题）
+  shiftDelay: 200 # shift按下延时多久开启
+
+# 无障碍优化（在首页按下「shift + ?」以查看效果）
+accesskey:
+  enable: true
+
+# 密码相关
+encrypt:
+  enable: true
+# envelope_comment
+# see https://akilar.top/posts/e2d3c450/
+envelope_comment:
+  enable: true #控制开关
+  custom_pic:      
+    cover: https://images.boysec.cn/violet.jpg #信笺头部图片
+    line: https://images.boysec.cn/line.png #信笺底部图片
+    beforeimg: https://images.boysec.cn/before.png # 信封前半部分
+    afterimg: https://images.boysec.cn/after.png # 信封后半部分
+  message: #信笺正文，多行文本，写法如下
+    - 有什么想问的？
+    - 有什么想说的？
+    - 有什么想吐槽的？
+    - 哪怕是有什么想吃的，都可以告诉我哦~
+  bottom: 自动书记人偶竭诚为您服务！ #仅支持单行文本
+  height: #1050px，信封划出的高度
+  path: #【可选】comments 的路径名称。默认为 comments，生成的页面为 comments/index.html
+  front_matter: #【可选】comments页面的 front_matter 配置
+    title: 留言板
+    comments: true
+#emoji:
+#  Web服务: 🌐
+#  安全: ⚠
+#  监控: 🕵
+#  自动化运维: 📟
+#  数据库: 📚
+#  虚心分享: 📝
+#  虚拟化运维: 🌥️
 
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
@@ -1071,7 +1137,7 @@ inject:
 
   bottom:
     # 自定义js
-    # - <script src="/js/xxx"></script>
+    #- <script src="/js/utils.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
@@ -1080,7 +1146,7 @@ CDN:
   # The CDN provider of internal scripts (主题内部 js 的 cdn 配置)
   # option: local/elemecdn/jsdelivr/unpkg/cdnjs/custom
   # Dev version can only choose. ( dev版的主题只能设置为 local )
-  internal_provider: elemecdn
+  internal_provider: local
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
   # option: elemecdn/jsdelivr/unpkg/cdnjs/custom

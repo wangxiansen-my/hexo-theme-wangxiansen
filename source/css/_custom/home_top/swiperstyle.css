@@ -11,6 +11,7 @@
 	width: 100%;
 	float: right;
 	height: 338px;
+	cursor: pointer
 }
 
 .swiper-pagination:hover {

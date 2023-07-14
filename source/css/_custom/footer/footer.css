@@ -32,6 +32,3 @@
     transform: scale(1.1);
   }
 }
-#footer-banner .footer-banner-right a:hover {
-    color: var(--heo-lighttext)
-}

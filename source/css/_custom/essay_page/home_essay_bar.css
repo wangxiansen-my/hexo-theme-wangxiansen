@@ -6,7 +6,7 @@
   box-shadow: var(--anzhiyu-shadow-lightblack);
   display: flex;
   transition: all 0.3s ease 0s;
-  margin: 1rem auto 0;
+  margin: .3rem auto .5rem;
   border: var(--style-border);
   align-items: center;
   height: 50px;
@@ -21,7 +21,7 @@
 }
 @media screen and (max-width: 768px) {
   div#bbTimeList {
-    margin: 0 20px 15px;
+    margin: 0 20px 5px;
   }
 }
 [data-theme="dark"] #bbTimeList {

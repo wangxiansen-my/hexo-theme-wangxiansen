@@ -138,11 +138,12 @@ div#category {
   ) {
   font-weight: 500;
   border-bottom: solid 2px var(--anzhiyu-lighttext);
-  color: var(--hl-color);
+  color: var(--anzhiyu-theme);
   padding: 0 0.2em;
   text-decoration: none;
   font-family: auto;
 }
+/*
 #article-container
   a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):not(
     .no-text-decoration
@@ -153,7 +154,7 @@ div#category {
   border-radius: 0.25em;
   text-decoration: none;
 }
-
+*/
 html.hide-aside .layout > div:first-child {
   width: 100%;
 }

@@ -62,7 +62,7 @@ hexo.extend.generator.register("random", function (locals) {
     };`;
   }
   return {
-    path: config.path || "anzhiyu/random.js",
+    path: config.path || "/js/random.js",
     data: result,
   };
 });

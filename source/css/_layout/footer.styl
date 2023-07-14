@@ -18,7 +18,7 @@
 
 #footer-wrap
   position: relative
-  padding: 40px 20px
+  padding: 0px 20px
   color: var(--light-grey)
   text-align: center
   #footer_deal
@@ -117,3 +117,61 @@
     vertical-align: text-bottom
 [data-theme=light] .post #footer #footer-wrap
   background: var(--anzhiyu-background);
+
+#footer-banner .footer-banner-right a:hover {
+    color: var(--heo-lighttext)
+}
+#footer-banner {
+    padding: 1rem;
+    color: #fff;
+    margin-top: 1rem;
+    background: linear-gradient(208deg,#4584ff 0,#4584ff 11%,#ff7676 100%);
+    display: flex
+}
+
+[data-theme=dark] #footer-banner {
+    background: var(--heo-secondbg)
+}
+
+#footer-banner .footer-banner-links {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap
+}
+
+#footer-banner .footer-banner-left {
+    display: flex;
+    flex-wrap: wrap;
+	min-height: 40px
+}
+
+#footer-banner .footer-banner-link {
+    margin-right: 1rem;
+    color: var(--heo-white);
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap
+}
+
+#footer-banner .footer-banner-link.cc {
+    margin-right: 0
+}
+
+#footer-banner .footer-banner-link.cc i {
+    margin-right: .5rem
+}
+
+#footer-banner .footer-banner-link:hover {
+    color: var(--heo-theme)
+}
+
+#footer-banner>div>div.footer-banner-left>span {
+    margin-right: 1rem
+}
+
+#footer-banner .footer-banner-right a:hover {
+    color: var(--heo-lighttext)
+}
