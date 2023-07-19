@@ -138,23 +138,23 @@ div#category {
   ) {
   font-weight: 500;
   border-bottom: solid 2px var(--anzhiyu-lighttext);
-  color: var(--anzhiyu-theme);
+  color: var(--anzhiyu-fontcolor);
   padding: 0 0.2em;
   text-decoration: none;
   font-family: auto;
 }
-/*
+
 #article-container
   a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):not(
     .no-text-decoration
   ):hover {
   color: var(--anzhiyu-white);
-  background: var(--anzhiyu-anzhiyu-theme);
+  background: var(--anzhiyu-main);
   box-shadow: var(--anzhiyu-shadow-lightblack);
   border-radius: 0.25em;
   text-decoration: none;
 }
-*/
+
 html.hide-aside .layout > div:first-child {
   width: 100%;
 }

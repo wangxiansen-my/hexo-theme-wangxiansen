@@ -58,15 +58,18 @@ const anzhiyu = {
     }
   },
 
-  snackbarShow: (text, showAction = false, duration = 2000) => {
+  snackbarShow: (text, showActionFunction = false, duration = 2000, actionText = false) => {
     const { position, bgLight, bgDark } = GLOBAL_CONFIG.Snackbar;
     const bg = document.documentElement.getAttribute("data-theme") === "light" ? bgLight : bgDark;
     const root = document.querySelector(":root");
     root.style.setProperty("--anzhiyu-snackbar-time", duration + "ms");
+
     Snackbar.show({
       text: text,
       backgroundColor: bg,
-      showAction: showAction,
+      onActionClick: showActionFunction,
+      actionText: actionText,
+      showAction: actionText,
       duration: duration,
       pos: position,
       customClass: "snackbar-css",
@@ -564,27 +567,6 @@ const anzhiyu = {
     input.focus();
     input.setSelectionRange(-1, -1);
   },
-  //友链随机传送
-  travelling() {
-    var fetchUrl = GLOBAL_CONFIG.friends_vue_info.apiurl + "randomfriend";
-    fetch(fetchUrl)
-      .then(res => res.json())
-      .then(json => {
-        var name = json.name;
-        var link = json.link;
-        Snackbar.show({
-          text:
-            "点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：「" + name + "」",
-          duration: 8000,
-          pos: "top-center",
-          actionText: "前往",
-          onActionClick: function (element) {
-            element.style.opacity = 0;
-            window.open(link, "_blank");
-          },
-        });
-      });
-  },
   //切换音乐播放状态
   musicToggle: function (changePaly = true) {
     if (!anzhiyu_musicFirst) {
@@ -670,7 +652,7 @@ const anzhiyu = {
   },
   // 显示中控台
   showConsole: function () {
-    document.querySelector("#console").classList.add("show");
+    consoleEl.classList.add("show");
     anzhiyu.initConsoleState();
   },
 
@@ -684,7 +666,7 @@ const anzhiyu = {
       consoleEl.classList.remove("reward-show");
     }
     // 获取center-console元素
-    const centerConsole = document.getElementById('center-console');
+    const centerConsole = document.getElementById("center-console");
 
     // 检查center-console是否被选中
     if (centerConsole.checked) {
@@ -800,7 +782,7 @@ const anzhiyu = {
       return;
     }
     const urlParams = new URLSearchParams(window.location.search);
-    const userId = "7555042608";
+    const userId = "8152976493";
     const userServer = "netease";
     const anMusicPageMeting = document.getElementById("anMusic-page-meting");
     if (urlParams.get("id") && urlParams.get("server")) {
@@ -1055,8 +1037,16 @@ const anzhiyu = {
 
   // 跳转开往
   totraveling: function () {
-    anzhiyu.snackbarShow("即将跳转到「开往」项目的成员博客，不保证跳转网站的安全性和可用性", !1, 5000);
-    setTimeout(function () {
+    anzhiyu.snackbarShow(
+      "即将跳转到「开往」项目的成员博客，不保证跳转网站的安全性和可用性",
+      element => {
+        element.style.opacity = 0;
+        travellingsTimer && clearTimeout(travellingsTimer);
+      },
+      5000,
+      "取消"
+    );
+    travellingsTimer = setTimeout(function () {
       window.open("https://www.travellings.cn/go.html");
     }, "5000");
   },
