@@ -1,4 +1,5 @@
-- shortcutKeyDelay = theme.shortcutKey.delay
+- shortcutKeyDelay = theme.shortcutKey.delay ? theme.shortcutKey.delay : 100
+- shortcutKeyShiftDelay = theme.shortcutKey.shiftDelay ? theme.shortcutKey.shiftDelay : 200
 #keyboard-tips(class='')
   .keyboardTitle 博客快捷键
   .keybordList
@@ -14,6 +15,9 @@
 script.
   var anzhiyu_intype = false
   var anzhiyu_keyUpEvent_timeoutId = null
+  var anzhiyu_keyUpShiftDelayEvent_timeoutId = null
+  // 是否开启快捷键
+  anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
   function addKeyShotListener() {
     const windowObject = window;
     windowObject.removeEventListener("keydown", keyDownEvent);
@@ -35,10 +39,12 @@ script.
     }
 
     if (isKeyboardEnabled && isShiftKeyPressed && !isInInputField) {
-      anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
+      anzhiyu_keyUpShiftDelayEvent_timeoutId = setTimeout(()=>{
         switch (event.keyCode) {
           case 16:
-            document.querySelector("#keyboard-tips").classList.add("show");
+            anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
+              document.querySelector("#keyboard-tips").classList.add("show");
+            }, #{shortcutKeyShiftDelay});
             break;
           case 65:
             anzhiyu.showConsole();
@@ -105,6 +111,7 @@ script.
 
   function keyUpEvent(event) {
     anzhiyu_keyUpEvent_timeoutId && clearTimeout(anzhiyu_keyUpEvent_timeoutId);
+    anzhiyu_keyUpShiftDelayEvent_timeoutId && clearTimeout(anzhiyu_keyUpShiftDelayEvent_timeoutId);
     if (event.keyCode === 16) {
       const keyboardTips = document.querySelector("#keyboard-tips");
       keyboardTips.classList.remove("show");

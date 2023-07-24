@@ -176,11 +176,11 @@ error_404:
 
 post_meta:
   page: # Home Page
-    date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: relative # date/relative 显示日期还是相对日期
+    date_type: created # created or updated or both 主页文章日期是创建日或者更新日或都显示
+    date_format: date # date/relative 显示日期还是相对日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
-    label: true # true or false 显示描述性文字
+    label: false # true or false 显示描述性文字
   post:
     date_type: both # created or updated or both 文章页日期是创建日或者更新日或都显示
     date_format: relative # date/relative 显示日期还是相对日期
@@ -188,6 +188,7 @@ post_meta:
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
     mainTone: true # true or false 文章顶部图片是否使用主色调
+    unread: true # true or false 文章未读功能
 
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计
@@ -276,12 +277,6 @@ noticeOutdate:
 # Share System (分享功能)
 # --------------------------------------
 
-# AddThis
-# https://www.addthis.com/
-addThis:
-  enable: false
-  pubid:
-
 # Share.js
 # https://github.com/overtrue/share.js
 sharejs:
@@ -346,8 +341,8 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: 
-  region: 
+  envId: https://twikoo.boysec.cn
+  region: ap-beijing
   visitor: false
   option:
 
@@ -494,7 +489,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics: 
+baidu_analytics: 70a8e51b966bf7bde218a56e25faa91f
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -548,9 +543,9 @@ site_verification:
 
 theme_color:
   enable: true
-  cover_change: false
+  cover_change: true
   main: "#3b70fc"
-  dark_main: "#0084ff"
+  dark_main: "#f2b94b"
   paginator: "#3b70fc"
   #   button_hover: "#FF7242"
   text_selection: "#2128bd"
@@ -570,7 +565,7 @@ theme_color:
 table_interlaced_discoloration: false
 
 # 首页双栏显示
-article_double_row: false
+article_double_row: true
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默认top_img全屏，site_info在中间)
@@ -720,7 +715,7 @@ preloader:
 aside:
   enable: true
   hide: false
-  button: true
+  button: false
   mobile: false # display on mobile
   position: right # left or right
   display:
@@ -780,7 +775,7 @@ aside:
 busuanzi:
   site_uv: false
   site_pv: false
-  page_pv: true
+  page_pv: false
 
 # Time difference between publish date and now (网页运行时间)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
@@ -959,7 +954,7 @@ home_top:
   timemode: date #date/updated
   title: 知识分享
   subTitle: 运维安全。
-  siteText: WWW.BOYSEC.CN
+  siteText: BOYSEC.CN
   category:
     - name: Linux
       path: /categories/Linux运维/
@@ -1085,9 +1080,10 @@ greetingBox:
     - greeting: 晚上好👋, 在属于自己的时间好好放松😌~
       startTime: 20
       endTime: 24
+
 # 快捷键配置
 shortcutKey:
-  enable: false
+  enable: true
   delay: 100 # 所有键位延时触发而不是立即触发（包括shift，以解决和浏览器键位冲突问题）
   shiftDelay: 200 # shift按下延时多久开启
 
@@ -1098,6 +1094,7 @@ accesskey:
 # 密码相关
 encrypt:
   enable: true
+
 # envelope_comment
 # see https://akilar.top/posts/e2d3c450/
 envelope_comment:
@@ -1127,6 +1124,11 @@ envelope_comment:
 #  虚心分享: 📝
 #  虚拟化运维: 🌥️
 
+# 友情链接顶部相关配置
+linkPageTop:
+  enable: false
+  title: 与数百名博主无限进步
+  
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
