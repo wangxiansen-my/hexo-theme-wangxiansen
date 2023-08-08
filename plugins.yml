@@ -21,7 +21,7 @@ valine:
 twikoo:
   name: twikoo
   file: dist/twikoo.all.min.js
-  version: 1.6.16
+  version: 1.6.17
 waline_js:
   name: "@waline/client"
   file: dist/waline.js
@@ -208,4 +208,4 @@ waterfall:
 ali_iconfont_css:
   name: anzhiyu-theme-static
   file: icon/ali_iconfont_css.css
-  version: 1.1.0
+  version: 1.1.9

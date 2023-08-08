@@ -202,10 +202,12 @@
   .topGroup .recent-post-item {
     display: flex;
   }
-
-  .categoryGroup .categoryItem:nth-child(3) {
-    display: none;
+  .categoryItem:last-child {
+    margin-right: auto
   }
+  /**.categoryGroup .categoryItem:nth-child(3) {
+    display: none;
+  }**/
   .categoryGroup {
     flex-direction: column;
     height: 95%;
@@ -228,7 +230,7 @@
   }
 
   .categoryItem {
-    height: 48%;
+    height: 32%;
     min-width: 200px;
     box-shadow: none !important;
   }
@@ -236,7 +238,7 @@
 /**    display: flex !important;**/
   }
   #bbTimeList {
-    margin: 15px 15px 0;
+    margin: 15px 15px 10px;
     max-width: 100%;
     width: auto;
   }

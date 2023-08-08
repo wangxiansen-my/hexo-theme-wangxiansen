@@ -10,12 +10,6 @@ menu:
     朋友圈: /fcircle/ || anzhiyu-icon-artstation
     留言板: /comments/ || anzhiyu-icon-envelope
 
-  # 我的:
-  #   音乐馆: /music/ || anzhiyu-icon-music
-  #   追番页: /bangumis/ || anzhiyu-icon-bilibili
-  #   相册集: /album/ || anzhiyu-icon-images
-  #   小空调: /air-conditioner/ || anzhiyu-icon-fan
-
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane
     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
@@ -64,17 +58,27 @@ copy:
 #   name: link || icon
 social:
   Github: https://github.com/5279314 || anzhiyu-icon-github
-  Email: wangxiansen@boysec.cn || anzhiyu-icon-envelope
+  Email: mailto:wangxiansen@boysec.cn || anzhiyu-icon-envelope
   # RSS: atom.xml || anzhiyu-icon-rss
   # BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
   # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || anzhiyu-icon-qq
 
+# 作者卡片 状态
 author_status:
   enable: true
   status: ✍️
   alias: writing_hand
   fallback_src: https://github.githubassets.com/images/icons/emoji/unicode/270d.png
   text: on Studying
+  skills:
+    - 🤖️ 数码科技爱好者
+    - 🔍 分享与热心帮助
+    - 🏠 智能家居小能手
+    - 🔨 运维开发一条龙
+    - 🤝 专修BUG与难题
+    - 🏃 脚踏实地行动派
+    - 🧱 团队小组发动机
+    - 💢 壮汉人狠话不多
 
 # search (搜索)
 # see https://butterfly.js.org/posts/ceeb73f/#搜索系统
@@ -177,7 +181,7 @@ error_404:
 post_meta:
   page: # Home Page
     date_type: created # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: date # date/relative 显示日期还是相对日期
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
     label: false # true or false 显示描述性文字
@@ -187,9 +191,17 @@ post_meta:
     categories: true # true or false 文章页是否显示分类
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
-    mainTone: true # true or false 文章顶部图片是否使用主色调
     unread: true # true or false 文章未读功能
 
+# 主色调相关配置
+mainTone:
+  enable: true # true or false 文章是否启用获取图片主色调
+  mode: cdn # cdn/api/both cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取
+  # 项目地址：https://github.com/anzhiyu-c/img2color-go
+  api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
+  cover_change: true # 整篇文章跟随cover修改主色调
+  
+  
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计
 wordcount:
@@ -229,6 +241,10 @@ post_copyright:
   location: 北京
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  avatarSinks: false # hover时头像下沉
+  copyright_author_img_back:
+  copyright_author_img_front:
+  copyright_author_link: /
 
 # Sponsor/reward
 reward:
@@ -280,7 +296,7 @@ noticeOutdate:
 # Share.js
 # https://github.com/overtrue/share.js
 sharejs:
-  enable: true
+  enable: false
   sites: facebook,twitter,wechat,weibo,qq
 
 # AddToAny
@@ -341,7 +357,7 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: https://twikoo.boysec.cn
+  envId: 
   region: ap-beijing
   visitor: false
   option:
@@ -381,12 +397,6 @@ tidio:
 daovoice:
   enable: false
   app_id:
-
-# gitter
-# https://gitter.im/
-gitter:
-  enable: false
-  room:
 
 # crisp
 # https://crisp.chat/en/
@@ -489,7 +499,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics: 70a8e51b966bf7bde218a56e25faa91f
+baidu_analytics: 
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -543,7 +553,6 @@ site_verification:
 
 theme_color:
   enable: true
-  cover_change: true
   main: "#3b70fc"
   dark_main: "#f2b94b"
   paginator: "#3b70fc"
@@ -724,21 +733,15 @@ aside:
     category: false
   card_author:
     enable: true
-    type: 2 # 1为使用头像card 2为不使用头像card
     description: <div style="line-height:1.38;margin:.6rem 0;text-align:justify;color:rgba(255,255,255,.8)">这里分享关于<b style="color:#fff">运维、安全、DevOps、Python</b>相关的经验和笔记。</div><div style="line-height:1.38;margin:.6rem 0;text-align:justify;color:rgba(255,255,255,.8)">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> # 默认为站点描述
-    info_background: https://bu.dusays.com/2023/04/23/6444b2b59a295.webp # type为1时有效
-    button:
-      enable: true
-      icon: anzhiyu-icon-arrow-circle-right
-      text: 了解更多
-      link: /about/
+    name_link: /about
   card_announcement:
     enable: false
     content: 欢迎来看我的博客鸭~
   card_weixin:
     enable: true
-    face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
-    backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
+    face: https://images.boysec.cn/medias/img/630efc6e3e794.png
+    backFace: https://images.boysec.cn/medias/img/630efca2abb02.png
   card_recent_post:
     enable: false
     limit: 5 # if set 0 will show all
@@ -973,7 +976,7 @@ home_top:
       icon: anzhiyu-icon-book
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
-    enable: true
+    enable: false
     swiper_js: https://images.boysec.cn/js/swiper-bundle.min.js
     swiper_css: https://images.boysec.cn/css/swiper-bundle.min.css
   banner:
@@ -984,10 +987,10 @@ home_top:
 
 # 朋友圈配置
 friends_vue:
-  enable: false
-  vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
-  apiurl: # 朋友圈后端地址
-  top_background:
+  enable: true
+  vue_js: https://images.boysec.cn/js/friends-v1.1.2.js
+  apiurl: https://friends.boysec.cn/ # 朋友圈后端地址
+  top_background: https://images.boysec.cn/tour/20220227151827.jpg
 
 # 黑色模式粒子效果canvas
 universe:
@@ -1049,37 +1052,38 @@ ptool:
   share_weibo: true
   share_copyurl: true
   categories: false # 是否显示分类
-  mode: # 运营模式与责任，不配置不显示
+  mode: /wechat # 运营模式与责任，不配置不显示
 
 # 欢迎语配置
 greetingBox:
   enable: false
   default: 晚上好👋
   list:
-    - greeting: 晚安😴
-      startTime: 0
-      endTime: 5
-    - greeting: 早上好鸭👋, 祝你一天好心情！
-      startTime: 6
-      endTime: 9
-    - greeting: 上午好👋, 状态很好，鼓励一下～
-      startTime: 10
-      endTime: 10
-    - greeting: 11点多啦, 在坚持一下就吃饭啦～
-      startTime: 11
-      endTime: 11
-    - greeting: 午安👋, 宝贝
-      startTime: 12
-      endTime: 14
-    - greeting: 🌈充实的一天辛苦啦！
-      startTime: 14
-      endTime: 18
-    - greeting: 19点喽, 奖励一顿丰盛的大餐吧🍔。
-      startTime: 19
-      endTime: 19
-    - greeting: 晚上好👋, 在属于自己的时间好好放松😌~
-      startTime: 20
-      endTime: 24
+    # - greeting: 晚安😴
+    #   startTime: 0
+    #   endTime: 5
+    # - greeting: 早上好鸭👋, 祝你一天好心情！
+    #   startTime: 6
+    #   endTime: 9
+    # - greeting: 上午好👋, 状态很好，鼓励一下～
+    #   startTime: 10
+    #   endTime: 10
+    # - greeting: 11点多啦, 在坚持一下就吃饭啦～
+    #   startTime: 11
+    #   endTime: 11
+    # - greeting: 午安👋, 宝贝
+    #   startTime: 12
+    #   endTime: 14
+    # - greeting: 🌈充实的一天辛苦啦！
+    #   startTime: 14
+    #   endTime: 18
+    # - greeting: 19点喽, 奖励一顿丰盛的大餐吧🍔。
+    #   startTime: 19
+    #   endTime: 19
+    # - greeting: 晚上好👋, 在属于自己的时间好好放松😌~
+    #   startTime: 20
+    #   endTime: 24
+
 
 # 快捷键配置
 shortcutKey:
@@ -1129,6 +1133,21 @@ linkPageTop:
   enable: false
   title: 与数百名博主无限进步
   
+# tag-plugins-plus
+# see https://akilar.top/posts/615e2dec/
+tag_plugins:
+  enable: false # 开关
+  priority: 5 #过滤器优先权
+  issues: false #issues标签依赖注入开关
+  link:
+    placeholder: /img/link.png #link_card标签默认的图标图片
+  CDN:
+    anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
+    jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
+    issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
+    iconfont: //at.alicdn.com/t/c/font_2752511_brf89epkrru.js #参看https://akilar.top/posts/d2ebecef/
+    carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
+    tag_plugins_css: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
@@ -1151,8 +1170,8 @@ CDN:
   internal_provider: local
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
-  # option: elemecdn/jsdelivr/unpkg/cdnjs/custom
-  third_party_provider: elemecdn
+  # option: elemecdn/jsdelivr/unpkg/cdnjs/custom/cbd
+  third_party_provider: cbd
 
   # Add version number to CDN, true or false
   version: true

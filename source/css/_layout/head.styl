@@ -97,8 +97,9 @@
       margin: 0 -20% 0 auto;
       overflow: hidden;
       margin-bottom: 0;
+      user-select: none
       transform: rotate(10deg) translateY(-10%) scale(2);
-      if !hexo-config('post_meta.post.mainTone')
+      if !hexo-config('mainTone.enable')
         filter: blur(10px) brightness(60%);
         animation: none;
         transition: filter 0s
@@ -118,9 +119,13 @@
         transform: rotate(0deg) translateY(0) scale(1);
         filter: blur(0px);
         width: 100%;
-        height: 100vh;
-        position: fixed;
-        z-index: 2;
+        if hexo-config('mainTone.enable')
+          position: fixed;
+          height: 30rem;
+        else
+          position: absolute;
+          height: 100vh;
+        z-index: 1;
       &::after
         position: absolute;
         content: "";
@@ -139,7 +144,10 @@
         animation: slide-in 0.6s 0.3s backwards;
         +maxWidth768()
           min-height: 15rem !important;
-          height: 70% !important;
+          if hexo-config('mainTone.enable')
+            height: 70% !important;
+          else
+            height: 100% !important;
           opacity: 1 !important;
 
     #nav
@@ -160,7 +168,7 @@
         #nav
           background: var(--anzhiyu-card-bg);
           outline: 1px solid var(--anzhiyu-card-border);
-    if hexo-config('post_meta.post.mainTone')
+    if hexo-config('mainTone.enable')
       &:before    
         position: absolute
         width: 100%
@@ -188,7 +196,7 @@
     +maxWidth768()
       padding: .5rem 6% 0;
       align-items: center;
-      if hexo-config('post_meta.post.mainTone')
+      if hexo-config('mainTone.enable')
         &:after
           display: block
           position: absolute;
@@ -218,7 +226,6 @@
       #center-console + label
         i
           background: var(--font-color)
-		  
   &.nav-fixed
     #nav
       position: fixed
@@ -227,11 +234,10 @@
       outline: 1px solid var(--anzhiyu-card-border);
       transform: translateZ(0);
       top: 0
-
       #toggle-menu
         color: var(--font-color)
         text-shadow: none
-        transition: background .3s ease-in-out,color 0s ease-in-out;
+        transition: background .3s ease-in-out,color 0s ease-in-out
       #blog_name,
       .mask-name-container,
       #menus,
@@ -490,10 +496,14 @@
 
           a
             display: inline-block
-            padding: 8px 16px
+            padding: .5625rem 1rem
             width: 100%
             color: var(--font-color) !important
             text-shadow: none !important
+            &:hover
+              color: var(--anzhiyu-white) !important
+              padding: .125rem 1.25rem;
+              transform: scale(1) !important;
 
   &.hide-menu
     #toggle-menu
@@ -554,7 +564,7 @@
   transition: 0.6s
   background-color: transparent
   overflow: hidden
-  if hexo-config('post_meta.post.mainTone')
+  if hexo-config('mainTone.enable')
     background-color: var(--anzhiyu-bar-background)
 
   // #nav
@@ -702,7 +712,7 @@
   .layout > div:first-child:not(.recent-posts)
     z-index: 10;
     margin-top: -30px;
-  if hexo-config('post_meta.post.mainTone')
+  if hexo-config('mainTone.enable')
     #page-header.post-bg #nav
       background: linear-gradient(to top, var(--anzhiyu-main-none) 0%, var(--anzhiyu-bar-background) 100%);
   .post-bg:has(.bldbanner) #post-info:after,
@@ -713,6 +723,9 @@
   .waves-area .waves-svg
     height: 40px;
     min-height: 40px;
+  .main-hero-waves-area
+    display: none;
+    visibility: hidden;
 
 @keyframes showCover
   0%

@@ -15,5 +15,6 @@ div#bannerGroup {
   }
   #home_top ~ main {
     margin-top: 0;
+	padding-top: 0;
   }
 }

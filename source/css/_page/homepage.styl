@@ -19,7 +19,7 @@
     .unvisited-post 
       display: none
       color: var(--anzhiyu-secondtext);
-      font-size: 0.5rem;
+      font-size: 0.7rem;
       if hexo-config('post_meta.post.unread') 
         display: flex
       if hexo-config('cover.index_enable') 
@@ -45,12 +45,12 @@
       .newPost 
         display: flex;
         color: var(--anzhiyu-lighttext);
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         margin-right: 8px;
         top: 30px;
         left: 32px
         +maxWidth768()
-          top: 2px;
+          top: 5px;
         if hexo-config('cover.index_enable') 
           position: absolute;
         else 
@@ -159,7 +159,9 @@
         -webkit-line-clamp: 2 !important
 
         +maxWidth768()
-          top: 25px
+          if hexo-config("post_meta.page.date_type") == 'both'
+            -webkit-line-clamp: 1 !important;
+          top: 20px
 
         &:hover
           color: $text-hover
@@ -291,12 +293,12 @@ if hexo-config('article_double_row') == true
     height: 0;
   +maxWidth1200()
     #recent-posts > .recent-post-item .unvisited-post
-      top: 32px;
+      top: 42px;
       left: calc(44% + 32px);
       width: 24px;
     #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
       left: calc(44% + 88px) !important;
-      top: 32px;
+      top: 42px;
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
       font-weight: bold;
@@ -377,7 +379,7 @@ if hexo-config('article_double_row') == true
     .recent-post-item
       &:has(.newPost) .unvisited-post
         left: 90px !important;
-        top: 202px !important;
+        top: 204px !important;
 
 #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
   transition: all 0.3s ease 0s;

@@ -22,3 +22,9 @@ if hexo-config('algolia_search.enable')
 if hexo-config('local_search') && hexo-config('local_search.enable')
   @import '_search/index'
   @import '_search/local-search'
+
+//test
+if hexo-config('home_top.swiper.enable')
+  @import '_Sticky/sticky.css'
+else
+  @import '_Sticky/swiperstyle.css'

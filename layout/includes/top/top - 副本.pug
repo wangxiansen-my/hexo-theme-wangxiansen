@@ -28,16 +28,22 @@ if home_top_config.enable
                 else if (item.icon.startsWith("anzhiyu"))
                   i.anzhiyufont(class=`${item.icon}`)
       if theme.home_top.swiper.enable
-        #swiper_container_blog
-          include sticky.pug
-      else
+        include sticky.pug
+      else 
         .topGroup
           - let top_group_list = sort_attr_post("top_group_list").splice(0, 6)
           - let top_group_banner_tips = theme.home_top.banner.tips
           - let top_group_banner_title = theme.home_top.banner.title
           - let top_group_banner_image = theme.home_top.banner.image
           - let top_group_banner_link = url_for(theme.home_top.banner.link)
-          include sticky.pug
+          each item, index in top_group_list.slice(0, 6)
+            .recent-post-item
+              .post_cover.left_radius
+                a(href=item.path, title=item.title)
+                  span.recent-post-top-text 荐
+                  img.post_bg(onerror=item.cover, alt='',  src=item.cover)
+              .recent-post-info
+                a.article-title(href=item.path, title=item.title)=item.title
           a#todayCard.todayCard(href=top_group_banner_link, style='z-index: 1;')
             .todayCard-info
               .todayCard-tips=top_group_banner_tips
@@ -46,5 +52,6 @@ if home_top_config.enable
             .banner-button-group
               .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
                 i.anzhiyufont.anzhiyu-icon-arrow-circle-right
-                span.banner-button-text 更多推荐        
+                span.banner-button-text 更多推荐
+        
         link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)
