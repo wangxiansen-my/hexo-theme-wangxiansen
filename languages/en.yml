@@ -32,7 +32,9 @@ post:
     copyright_notice: Copyright Notice
     copyright_content: 'All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.'
   recommend: Related Articles
-  edit: Edited on
+  edit:
+    github: Edited on GitHub
+    yuque: Edited on Yuque
 
 search:
   title: Search
@@ -82,6 +84,8 @@ aside:
     link: link
     code: code
   card_toc: Catalog
+  display_mode: Display Mode
+  function: Function
 
 date_suffix:
   just: Just
@@ -109,12 +113,14 @@ copy_copyright:
   link: Link
   source: Source
   info: Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+  copySuccess: Copy success, copy and reprint please mark the address of this article
 
 Snackbar:
   chs_to_cht: Traditional Chinese Activated Manually
   cht_to_chs: Simplified Chinese Activated Manually
   day_to_night: Dark Mode Activated Manually
   night_to_day: Light Mode Activated Manually
+  copy_equipment_name: Installed device name has been loaded
 
 loading: Loading...
 

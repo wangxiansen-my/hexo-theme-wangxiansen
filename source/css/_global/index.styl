@@ -284,6 +284,8 @@ hr
       else
         @extend .anzhiyufont
 
+html
+  overflow-y: overlay;
 .table-wrap
   overflow-x: scroll
   margin: 1rem 0;
@@ -323,7 +325,7 @@ a
   color: $a-link-color
   text-decoration: none
   word-wrap: break-word
-  transition: all .2s
+  transition: all 0.2s ease 0s;
   overflow-wrap: break-word
 
   &:hover
@@ -363,7 +365,7 @@ if hexo-config('lazyload.enable') && hexo-config('lazyload.blur') && !hexo-confi
 
     &[data-lazy-src].error
       filter: none
-	  opacity 1 !important
+      opacity 1 !important
 
 // lazyload progressive
 if hexo-config('lazyload.enable') && hexo-config('lazyload.progressive') && !hexo-config('lazyload.placeholder')
@@ -373,8 +375,10 @@ if hexo-config('lazyload.enable') && hexo-config('lazyload.progressive') && !hex
   img[src=''], img:not([src]) 
     opacity 0
 .img-alt
-  margin: -10px 0 10px
-  color: #858585
+  font-size: 12px;
+  margin: 0;
+  margin-top: 8px;
+  color: var(--anzhiyu-secondtext);
 
   &:hover
     text-decoration: none !important
@@ -394,3 +398,9 @@ blockquote
 
   & > :last-child
     margin-bottom: 0 !important
+
+#single_top
+  padding: 1.875rem 1.5rem 0
+  max-width: 1400px
+  width 100%
+  margin 0 auto

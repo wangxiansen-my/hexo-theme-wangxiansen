@@ -37,6 +37,8 @@ if hexo-config('comments.use') == 'Twikoo'
     background-color: var(--anzhiyu-card-bg);
 
   #twikoo 
+    .tk-admin
+      backdrop-filter: blur(5px);
     .tk-submit
       .actions
         .tk-send
@@ -44,6 +46,11 @@ if hexo-config('comments.use') == 'Twikoo'
           border-color: var(--anzhiyu-main)
           &:hover 
             opacity: 0.8;
+    .tk-tag-green
+      background-color: var(--anzhiyu-main);
+      border: none;
+      border-radius: 4px;
+      color: var(--anzhiyu-white);
     .tk-action-icon
       color: var(--anzhiyu-main)
       cursor pointer
@@ -78,6 +85,13 @@ if hexo-config('comments.use') == 'Twikoo'
     .tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar
       height: 2.5rem !important;
       width: 2.5rem !important;
+    .tk-comment
+      pre
+        background: #272822;
+        padding: 1em;
+        margin: 0.5em 0;
+        overflow: auto;
+        border-radius: 0.3em;
     
     +maxWidth768()
       .tk-comments-container .tk-comment
@@ -341,7 +355,7 @@ if hexo-config('comments.use') == 'Twikoo'
     }
     .tk-comments .tk-main .tk-row-actions-start {
       position: absolute;
-      left: 0px;
+      left: 18px;
       top: -50px;
     }
     .tk-comments button.el-button.tk-preview.el-button--default.el-button--small {
@@ -353,9 +367,18 @@ if hexo-config('comments.use') == 'Twikoo'
     .tk-comments .tk-main .tk-submit .tk-row.actions {
       justify-content: center;
     }
-    .tk-comments .tk-main button.el-button.tk-send,
-    .tk-comments .tk-main button.el-button.tk-cancel {
+    .tk-comments button.el-button.tk-send,
+    .tk-comments button.el-button.tk-cancel {
       width: 100%;
+    }
+    .tk-comments .tk-row-actions-start {
+      position: absolute;
+    }
+    #twikoo .tk-submit .actions .tk-send {
+      margin-left: 0
+    }
+    #twikoo .tk-comments .tk-main .tk-submit .actions .tk-send {
+      margin-left: 10px
     }
   }
 

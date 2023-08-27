@@ -4,6 +4,11 @@
   transition: all 0.3s, width 0s;
   border-radius: 12px;
 }
+.swiper_container_card {
+  display: flex !important;
+  justify-content: space-around;
+  flex-direction: row !important;
+}
 
 #Sticky {
 	vertical-align: top;
@@ -231,8 +236,4 @@
   }
 }
 
-.swiper_container_card {
-  display: flex !important;
-  justify-content: space-around;
-  flex-direction: row !important;
-}
+

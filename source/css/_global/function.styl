@@ -30,6 +30,13 @@ if hexo-config('icons.fontawesome')
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+.anzhiyufont::before
+  font-family: "anzhiyufont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 // card hover
 .cardHover
   border-radius: 8px
@@ -132,6 +139,7 @@ minWidth2000()
   animation: scroll-down-effect 1.5s infinite
 
 .anzhiyu-spin
+  display: inline-block
   transform-origin: 50% 50%;
   animation-name: anzhiyu-spin;
   animation-duration: var(--anzhiyu-animation-duration,2s);
@@ -228,11 +236,11 @@ if hexo-config('avatar.effect') == true
 @keyframes search_close
   0%
     opacity: 1
-    transform: scale(1)
+    transform: translateY(0)
 
   100%
     opacity: 0
-    transform: scale(.7)
+    transform: translateY(20px)
 
 @keyframes to_show
   0%
@@ -262,15 +270,6 @@ if hexo-config('avatar.effect') == true
   to
     transform: rotate(360deg)
 
-@keyframes sub_menus
-  0%
-    opacity: 0
-    transform: translateY(10px)
-
-  100%
-    opacity: 1
-    transform: translateY(0)
-
 @keyframes donate_effcet
   0%
     opacity: 0
@@ -286,3 +285,55 @@ if hexo-config('avatar.effect') == true
 
   100%
     transform: translateX(0)
+
+@keyframes sidebarItem
+  0%
+    transform: translateY(0);
+    opacity: 1;
+  100%
+    transform: translateY(20px);
+    opacity: 0;
+
+@keyframes barrageIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes barrageOut {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes toLeftFull
+  0%
+    transform: translateX(200%)
+
+  100%
+    transform: translateX(0)
+
+@keyframes toRightFull
+  0%
+    transform: translateX(0)
+
+  100%
+    transform: translateX(200%)
+
+@keyframes breathe
+  0% 
+    transform: scale(.97);
+  50%
+    transform: scale(1.1);
+  100%
+    transform: scale(.97);

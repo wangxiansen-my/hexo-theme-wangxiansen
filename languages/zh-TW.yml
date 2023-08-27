@@ -33,13 +33,15 @@ post:
     copyright_content: '本部落格所有文章除特別聲明外，均採用
       <a href="%s" target="_blank">%s</a> 許可協議。轉載請註明來自 <a href="%s" target="_blank">%s</a>！'
   recommend: 相關推薦
-  edit: 編輯
+  edit:
+    github: 在 GitHub 上編輯
+    yuque: 在 語雀 上編輯
 
 search:
   title: 搜尋
   load_data: 資料庫載入中
   algolia_search:
-    input_placeholder: 搜尋文章
+    input_placeholder: 輸入關鍵字後按下回車查找
     hits_empty: "找不到您查詢的內容：${query}"
     hits_stats: "找到 ${hits} 條結果，用時 ${time} 毫秒"
 
@@ -61,7 +63,7 @@ aside:
   card_categories: 分類
   card_tags: 標籤
   card_archives: 歸檔
-  card_recent_post: 最新文章
+  card_recent_post: 最近发布
   card_webinfo:
     headline: 網站資訊
     article_name: 文章數目
@@ -83,6 +85,8 @@ aside:
     link: 連結
     code: 程式碼
   card_toc: 文章目錄
+  display_mode: 顯示模式
+  function: 功能
 
 date_suffix:
   just: 剛剛
@@ -110,12 +114,14 @@ copy_copyright:
   link: 連結
   source: 來源
   info: 著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。
+  copySuccess: 複製成功，複製和轉載請標注本文地址
 
 Snackbar:
   chs_to_cht: 你已切換為繁體
   cht_to_chs: 你已切換為簡體
   day_to_night: 你已切換為深色模式
   night_to_day: 你已切換為淺色模式
+  copy_equipment_name: 已複製裝備名稱
 
 loading: 載入中...
 

@@ -3,26 +3,29 @@
     #aside-content
       background: var(--anzhiyu-background);
       border: none;
+      z-index 2
+      margin-top: -1px
 #aside-content
   width: 300px
+  animation: slide-in 0.6s 0.3s backwards;
 
-  +minWidth900()
+  +minWidth1200()
     if hexo-config('aside.position') == 'right'
       padding-left: 15px
     else
       padding-right: 15px
 
-  +maxWidth900()
+  +maxWidth1200()
     width: 100%
     padding: 20px;
-
+  
   +maxWidth768()
-    margin-top: -1px;
+    padding: 0 20px 20px
 
   > .card-widget:first-child
     margin-top: 0
 
-    +maxWidth900()
+    +maxWidth1200()
       margin-top: 20px
     +maxWidth768()
       margin-top: 0px
@@ -65,7 +68,7 @@
       padding: 1rem 1.2rem;
       opacity: 0;
       transition: .3s;
-      pointer-events: none
+      color: var(--anzhiyu-white);
 
     .banner-button-group .banner-button 
       padding: 20px 12px;
@@ -79,42 +82,28 @@
         font-size: 1.3rem;
         margin-right: 10px;
 
-    .card-info-avatar 
-      .author-status-box
+    .author-info-avatar 
+      user-select: none
+      img
+        filter: blur(0) brightness(1);
+      .author-status
         position: absolute;
-        bottom: 0;
-        left: calc(100% - 28px);
-        width: 28px;
-        height: 28px;
+        bottom: 2px;
+        right 2px
+        width: 33px;
+        height: 33px;
         border-radius: 2em;
         background-color: var(--anzhiyu-white);
-        transition: 0.3s;
         overflow: hidden;
-        &:hover
-          width: 105px
-          .author-status span
-            width: 105px;
-            margin-left: 4px;
-            color: var(--anzhiyu-black)
-        .author-status
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 28px;
-          padding: 0 5px;
-          span 
-            width: 0;
-            font-size: 12px;
-            height: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            transition: 0.3s;
-            line-height: 28px;
-
-    
-    [data-theme="dark"] .card-info-avatar .author-status-box
-      color: var(--anzhiyu-black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s .2s;
+        transform: scale(1);
+        img
+          width: 26px;
+          height: 26px;
+          border-radius: 0px;
 
     .card-info-social-icons
       margin: 0;
@@ -130,7 +119,7 @@
         font-size: 1.4em;
         cursor: pointer;
         display: flex;
-        i
+        i, svg
           background: var(--anzhiyu-white-op);
           color: var(--anzhiyu-white);
           font-size: 1rem;
@@ -174,7 +163,7 @@
       margin-left: 6px
 
   .sticky_layout
-    +minWidth900()
+    +minWidth1200()
       position: sticky
       position: -webkit-sticky
       top: 20px
@@ -262,10 +251,9 @@
       flex-direction: row
       padding: 3px 10px
       color: var(--font-color)
-      transition: all .4s
+      transition: all .2s
 
       &:hover
-        padding: 3px 17px
         background-color: var(--text-bg-hover)
 
       span
@@ -281,6 +269,12 @@
 
       > .parent
         > a
+          &.expand
+            i
+              transform: rotate(-90deg)
+
+            & + .child
+              display: block
           .card-category-list
             &-name
               width: 70% !important
@@ -289,15 +283,12 @@
               width: calc(100% - 70% - 20px)
               text-align: right
 
-        i
-          float: right
-          margin-right: -.5em
-          padding: .5em
-          transition: transform .3s
-          transform: rotate(0)
-
-          &.expand
-            transform: rotate(-90deg)
+          i
+            float: right
+            margin-right: -.5em
+            padding: .5em
+            transition: transform .3s
+            transform: rotate(0)
 
         if hexo-config('aside.card_categories.expand') == false
           > .child
@@ -330,17 +321,19 @@
     +minWidth901()
       right: 0 !important
 
-    +maxWidth900()
+    +maxWidth1200()
       position: fixed
-      right: -100%
+      right: 55px
       bottom: 30px
       z-index: 100
       max-width: $toc-mobile-maxWidth
       max-height: calc(100% - 60px)
       width: $toc-mobile-width
-      opacity: 0
-      transition: initial
+      transition: transform .3s
+      transform: scale(0)
       transform-origin: right bottom
+      &.open
+        transform: scale(1)
 
     .toc-percentage
       display: none
@@ -355,8 +348,9 @@
       overflow-y: overlay
       margin: 0 -24px
       max-height: calc(100vh - 120px)
+      width: calc(100% + 48px)
 
-      +maxWidth900()
+      +maxWidth1200()
         max-height: calc(100vh - 140px)
 
       & > *
@@ -365,13 +359,13 @@
         & > .toc-item > .toc-child
           margin-left: 10px
           padding-left: 10px
-          border-left: 1px solid var(--dark-grey)
+          // border-left: 1px solid var(--dark-grey)
 
       &:not(.is-expand)
         .toc-child
           display: none
 
-          +maxWidth900()
+          +maxWidth1200()
             display: block !important
 
         .toc-item
@@ -421,11 +415,14 @@
         color: #FF0000
 
 .avatar-img
-  overflow: hidden
-  margin: 0 auto
-  width: 110px
-  height: 110px
-  border-radius: 70px
+  width: 118px;
+  right: 0;
+  top: 0;
+  border-radius: 500px;
+  position: absolute;
+  opacity: 1;
+  transition: .3s;
+  border: var(--style-border-avatar);
 
   img
     width: 100%
@@ -479,7 +476,7 @@
   100%
     transform: scale(.7)
 
-+minWidth900()
++minWidth1200()
   html.hide-aside
     .layout
       justify-content: center
@@ -489,7 +486,13 @@
 
       > div:first-child
         width: 80%
-
++maxWidth1200()
+  .aside-content
+    max-width: none !important;
+    display: none
++maxWidth768()
+  .aside-content
+    display: block
 .page
   .sticky_layout
     display: flex
@@ -544,16 +547,16 @@ if hexo-config('aside.enable')
         animation: gradient 15s ease infinite;
     .card-info
       &:hover 
-        .author-info-top
+        .author-info-avatar
           opacity: 0;
           transform: scale(0);
         .author-info__description
           opacity: 1;
-        .author-status-box
+        .author-status
           opacity: 0;
           transform: scale(0);
 
-      .author-info-top
+      .author-info-avatar
         margin: 45px auto
         display: flex
         justify-content: center
@@ -561,19 +564,9 @@ if hexo-config('aside.enable')
         height: 118px;
         transition: cubic-bezier(.69,.39,0,1.21) .3s;
         transform-origin: bottom;
+        position: relative
         +maxWidth768()
           display: none
-      .card-info-avatar
-        display: inline-block
-        position: relative
-        .avatar-img
-          width: 118px
-          height: 118px
-          display: block
-          img
-            border: var(--style-border-avatar);
-            border-radius: 50%;
-            filter: blur(0) brightness(1);
       #author-info__sayhi 
         text-align: left;
         color: var(--anzhiyu-white);

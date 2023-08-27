@@ -5,6 +5,20 @@
   border-radius: 12px;
 }
 
+.swiper_container_card {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row
+}
+@media screen and (max-width:768px) {
+  .swiper_container_card {
+    flex-direction: column !important;
+	justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
 #Sticky {
 	vertical-align: top;
 	display: flex;
@@ -70,12 +84,11 @@
 }
 @media screen and (max-width: 1200px) {
     #Sticky {
-	  width: 27%;
+	  width: 72vw;
 	  float: right;
 	  height: 330px;
     }
 }
-
 
 @media screen and (min-width:768px) {
 	#StickyList .swiper-slide .grid-title {
@@ -106,7 +119,7 @@
 @media screen and (max-width:768px) {
 	#Sticky {
 	display: flex;
-	width: 65%;
+	width: 100%;
 	float: right;
 	height: auto;
     }
@@ -235,8 +248,4 @@
   }
 }
 
-.swiper_container_card {
-  display: flex !important;
-  justify-content: space-around;
-  flex-direction: row !important;
-}
+

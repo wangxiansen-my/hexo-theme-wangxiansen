@@ -1,16 +1,4 @@
 #footer-wrap
-  if theme.footer.socialBar.enable
-    - let centerImg = theme.footer.socialBar.centerImg ? theme.footer.socialBar.centerImg : theme.avatar.img
-    - let leftInfo = theme.footer.socialBar.left
-    - let rightInfo = theme.footer.socialBar.right
-    #footer_deal
-      each item, index in leftInfo
-        a.deal_link(href=url_for(item.link) title=item.title)
-          i(class=item.icon)
-      img.footer_mini_logo(title="返回顶部", onclick="anzhiyu.scrollToDest(0, 500)", src=centerImg, size="50px")
-      each item, index in rightInfo
-        a.deal_link(href=url_for(item.link) title=item.title)
-          i(class=item.icon)
   if theme.footer.list.enable
     - let projectList = theme.footer.list.project
     #anzhiyu-footer
@@ -19,7 +7,7 @@
           .footer-title=item.title
           .footer-links
             each iten, indey in item.links
-              a.footer-item(title=iten.title target="_blank" href=iten.link)=iten.title
+              a.footer-item(title=iten.title href=url_for(iten.link))=iten.title
       if theme.footer.list.randomFriends > 0
         .footer-group
           .footer-title-group
@@ -27,29 +15,27 @@
             a.random-friends-btn#footer-random-friends-btn(href="javascript:addFriendLinksInFooter();" title="换一批友情链接")
               i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
           .footer-links#friend-links-in-footer
-  #footer-banner
-    .footer-banner-links
-      .footer-banner-left
-        #footer-banner-tips
-        if theme.footer.owner.enable
-          - var now = new Date()
-          - var nowYear = now.getFullYear()
-          if theme.footer.owner.since && theme.footer.owner.since != nowYear
-            .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
-          else
-            .copyright!= `&copy;${nowYear} By ${config.author}`
-        
-        - let work_img = theme.footer.runtime.work_img
-        - let work_description = theme.footer.runtime.work_description
-      .footer-banner-right
-        if theme.footer.runtime.enable
-          #workboard
-            img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
-            #runtimeTextTip
-        if theme.footer.bdageitem
-            each item in theme.footer.bdageitem
-              a.github-badge(target='_blank' href=item.link style='margin-inline:5px' data-title=item.message title=item.message)
-                img(src=item.shields alt=item.message)
-        if theme.footer.custom_text
-          .footer_custom_text!=`${theme.footer.custom_text}`
-      
+if theme.footer.footerBar && theme.footer.footerBar.enable
+  #footer-bar
+    .footer-bar-links
+      .footer-bar-left
+        #footer-bar-tips
+          if theme.footer.owner.enable
+            - var nowYear = new Date().getFullYear()
+            - let authorLink = theme.footer.footerBar.authorLink ? theme.footer.footerBar.authorLink : config.url
+            if theme.footer.owner.since && theme.footer.owner.since != nowYear
+              .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By `
+                a.footer-bar-link(href=url_for(authorLink) title=config.author target="_blank")=config.author
+            else
+              .copyright!= `&copy;${nowYear} By ${config.author} `
+      .footer-bar-right
+        if theme.footer.bdageitem.enable
+          each item in theme.footer.bdageitem.list
+            a.github-badge(target='_blank' href=item.link style='margin-inline:5px' data-title=item.message title=item.message)
+              img(src=item.shields alt=item.message)
+        if theme.footer.footerBar.cc.enable 
+          a.footer-bar-link.cc(href=url_for(theme.footer.footerBar.cc.link) title="cc协议")
+            i.anzhiyufont.anzhiyu-icon-copyright-line
+            i.anzhiyufont.anzhiyu-icon-creative-commons-by-line
+            i.anzhiyufont.anzhiyu-icon-creative-commons-nc-line
+            i.anzhiyufont.anzhiyu-icon-creative-commons-nd-line

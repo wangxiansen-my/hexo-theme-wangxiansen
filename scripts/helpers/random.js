@@ -77,7 +77,7 @@ hexo.extend.generator.register("random", function (locals) {
     };`;
   }
   return {
-    path: config.path || "js/random.js",
+    path: config.path || "boysec/random.js",
     data: result,
   };
 });

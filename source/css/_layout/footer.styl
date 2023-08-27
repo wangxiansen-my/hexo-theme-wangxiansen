@@ -6,7 +6,7 @@
   background-size: cover
   +maxWidth768()
     z-index: 3
-    margin-top: -16px;
+    margin-top: -1px;
 
   if hexo-config('footer_bg') != false
     &:before
@@ -16,15 +16,63 @@
       background-color: alpha($dark-black, .5)
       content: ''
 
+#footer-bar
+  padding: 1rem;
+  color: var(--anzhiyu-fontcolor);
+  margin-top: 1rem;
+  background: var(--anzhiyu-secondbg);
+  display: flex;
+  overflow: hidden;
+  z-index: 1002;
+  transition: 0.3s;
+  a
+    &:hover
+      color: var(--anzhiyu-lighttext);
+  .footer-bar-link
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 1rem;
+    color: var(--anzhiyu-fontcolor);
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+    &.cc i
+      margin-right: 0.7rem;
+      font-size: 18px;
+  .footer-bar-links
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1;
+
+    .footer-bar-left
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 32px;
+      align-items: center;
+    .footer-bar-right
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+
 #footer-wrap
   position: relative
-  padding: 0px 20px
+  if hexo-config('footer.footerBar') && hexo-config('footer.footerBar.enable')
+    padding: 40px 20px 0
+  else 
+    padding: 40px 20px
   color: var(--light-grey)
   text-align: center
+  +maxWidth768()
+    padding: 0
   #footer_deal
     justify-content: center;
     display: flex;
-    padding-top: 2rem;
     align-items: center;
     +maxWidth768()
       flex-wrap: wrap;
@@ -62,7 +110,7 @@
     margin: 1rem auto;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 1rem;
+    padding: 0 2rem;
     .footer-group
       min-width: 120px;
       .footer-title-group
@@ -82,6 +130,7 @@
       font-size: 1rem;
       text-align: left;
       font-weight: 600;
+      margin: 1rem 0;
     .footer-links
       display: flex;
       flex-direction: column;
@@ -115,63 +164,6 @@
     max-height: 1.4em
     width: auto
     vertical-align: text-bottom
-[data-theme=light] .post #footer #footer-wrap
-  background: var(--anzhiyu-background);
-
-#footer-banner .footer-banner-right a:hover {
-    color: var(--heo-lighttext)
-}
-#footer-banner {
-    padding: 1rem;
-    color: #fff;
-    margin-top: 1rem;
-    background: linear-gradient(208deg,#4584ff 0,#4584ff 11%,#ff7676 100%);
-    display: flex
-}
-
-[data-theme=dark] #footer-banner {
-    background: var(--heo-secondbg)
-}
-
-#footer-banner .footer-banner-links {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    flex-wrap: wrap
-}
-
-#footer-banner .footer-banner-left {
-    display: flex;
-    flex-wrap: wrap;
-	min-height: 40px
-}
-
-#footer-banner .footer-banner-link {
-    margin-right: 1rem;
-    color: var(--heo-white);
-    font-size: .8rem;
-    font-weight: 700;
-    white-space: nowrap
-}
-
-#footer-banner .footer-banner-link.cc {
-    margin-right: 0
-}
-
-#footer-banner .footer-banner-link.cc i {
-    margin-right: .5rem
-}
-
-#footer-banner .footer-banner-link:hover {
-    color: var(--heo-theme)
-}
-
-#footer-banner>div>div.footer-banner-left>span {
-    margin-right: 1rem
-}
-
-#footer-banner .footer-banner-right a:hover {
-    color: var(--heo-lighttext)
-}
+[data-theme=light] .post #footer
+  +maxWidth768()
+    background: linear-gradient(180deg, var(--anzhiyu-background) 0%, var(--anzhiyu-card-bg) 25%);

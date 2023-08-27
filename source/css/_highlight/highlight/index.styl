@@ -2,6 +2,18 @@ if $highlight_theme != false
   @require 'diff'
 
 #article-container
+  > header
+    height 0
+    text-indent:-9999px;
+    time, span
+      height: 0;
+      display: block;
+    h1
+      z-index: -1
+      pointer-events: none
+    a
+      background: none !important
+      border-bottom: none !important
   figure.highlight
     .line
       if wordWrap
@@ -28,7 +40,7 @@ if $highlight_theme != false
 
     .gutter pre
       padding-right: 10px
-      padding-left: 10px
+      padding-left: 20px
       background-color: var(--hlnumber-bg)
       color: var(--hlnumber-color)
       text-align: right

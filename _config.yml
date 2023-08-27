@@ -35,6 +35,12 @@ nav:
           link: /tools.html
           icon: https://images.boysec.cn/images/202212061116565.png
 
+# mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
+# 注意： 仅网站首页变灰，其他页面正常显示
+mourn:
+  enable: false
+  days: [4-5, 5-12, 7-7, 9-18, 12-13]
+
 # Code Blocks (代码相关)
 # --------------------------------------
 
@@ -47,6 +53,7 @@ code_word_wrap: false
 
 # copy settings
 # copyright: Add the copyright information after copied content (複制的内容后面加上版权信息)
+# copy: enable 复制后弹窗提示版权信息
 copy:
   enable: true
   copyright:
@@ -66,10 +73,8 @@ social:
 # 作者卡片 状态
 author_status:
   enable: true
-  status: ✍️
-  alias: writing_hand
-  fallback_src: https://github.githubassets.com/images/icons/emoji/unicode/270d.png
-  text: on Studying
+  # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
+  statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
   skills:
     - 🤖️ 数码科技爱好者
     - 🔍 分享与热心帮助
@@ -81,7 +86,7 @@ author_status:
     - 💢 壮汉人狠话不多
 
 # search (搜索)
-# see https://butterfly.js.org/posts/ceeb73f/#搜索系统
+# see https://blog.anheyu.com/posts/c27d.html#搜索系统
 # --------------------------------------
 
 # Algolia search
@@ -89,6 +94,56 @@ algolia_search:
   enable: false
   hits:
     per_page: 6
+  tags:
+    # - 前端
+    # - Hexo
+
+# Docsearch
+# Apply and Docs: see https://docsearch.algolia.com/
+# Crawler Admin Console: see https://crawler.algolia.com/
+# Settings: https://www.algolia.com/
+docsearch:
+  enable: false
+  appId: # see email
+  apiKey: # see email
+  indexName: # see email
+  option:
+    placeholder: "Ctrl/⌘ + K 唤醒搜索服务"
+    maxResultsPerGroup: 7
+    translations:
+      button:
+        buttonText: "搜索"
+        buttonAriaLabel: "搜索"
+      modal:
+        searchBox:
+          resetButtonTitle: "清空"
+          resetButtonAriaLabel: "清空"
+          cancelButtonText: "取消"
+          cancelButtonAriaLabel: "取消"
+        startScreen:
+          recentSearchesTitle: "最近搜索历史"
+          noRecentSearchesText: "搜索历史为空"
+          saveRecentSearchButtonTitle: "保存搜索记录"
+          removeRecentSearchButtonTitle: "清除搜索记录"
+          favoriteSearchesTitle: "收藏夹"
+          removeFavoriteSearchButtonTitle: "移出收藏夹"
+        errorScreen:
+          titleText: "未能获取搜索结果"
+          helpText: "您可能需要检查您的网络连接"
+        footer:
+          selectText: "选择"
+          selectKeyAriaLabel: "回车键"
+          navigateText: "切换"
+          navigateUpKeyAriaLabel: "方向键上"
+          navigateDownKeyAriaLabel: "方向键下"
+          closeText: "关闭"
+          closeKeyAriaLabel: "退出键"
+          searchByText: "搜索服务提供: DocSearch by"
+        noResultsScreen:
+          noResultsText: "未搜索到相关内容"
+          suggestedQueryText: "您可尝试搜索"
+          reportMissingResultsText: "确认搜索结果是正确的？"
+          reportMissingResultsLinkText: "反馈给Algolia"
 
 # Local search
 local_search:
@@ -129,31 +184,10 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: false
+index_img: false # "background: url() top / cover no-repeat"
 
 # If the banner of page not setting, it will show the top_img
 default_top_img: false
-
-# The banner image of archive page
-archive_img: false
-
-# If the banner of tag page not setting, it will show the top_img
-# note: tag page, not tags page (子标籤页面的 top_img)
-tag_img:
-
-# The banner image of tag page
-# format:
-#  - tag name: xxxxx
-tag_per_img:
-
-# If the banner of category page not setting, it will show the top_img
-# note: category page, not categories page (子分类页面的 top_img)
-category_img:
-
-# The banner image of category page
-# format:
-#  - category name: xxxxx
-category_per_img:
 
 cover:
   # display the cover or not (是否显示文章封面)
@@ -181,7 +215,7 @@ error_404:
 post_meta:
   page: # Home Page
     date_type: created # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: relative # date/relative 显示日期还是相对日期
+    date_format: simple # date/relative/simple 显示日期还是相对日期 或者 简单日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
     label: false # true or false 显示描述性文字
@@ -200,10 +234,9 @@ mainTone:
   # 项目地址：https://github.com/anzhiyu-c/img2color-go
   api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
   cover_change: true # 整篇文章跟随cover修改主色调
-  
-  
+
 # wordcount (字数统计)
-# see https://butterfly.js.org/posts/ceeb73f/#字数统计
+# see https://blog.anheyu.com/posts/c27d.html#字数统计
 wordcount:
   enable: true
   post_wordcount: true
@@ -252,18 +285,23 @@ reward:
   QR_code:
     - img: https://images.boysec.cn/medias/reward/wechat.png
       link:
-      text: wechat
+      text: 微信
     - img: https://images.boysec.cn/medias/reward/alipay.jpg
       link:
-      text: alipay
+      text: 支付宝
 
 # Post edit
 # Easily browse and edit blog source code online.
-post_edit:
+post_edit: # 目前仅可选择一个平台在线编辑
   enable: false
-  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
+  # github: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url:
+  github: false
+
+  # yuque: https://www.yuque.com/user-name/repo-name/
+  # 示例: https://www.yuque.com/yuque/yuque/
+  # 你需要在语雀文章 Front Matter 添加参数 id 并确保其唯一性（例如 “id: yuque”, “id: 01”）
+  yuque: false
 
 # Related Articles
 related_post:
@@ -349,16 +387,73 @@ waline:
   serverURL: # Waline server address url
   bg: # waline background
   pageview: false
+  meta: false # 归属地, 操作系统 前是否显示图标
+  imageUploader: true # 是否启用图片上传功能，默认开启，限制为 128kb 的 base64 图片
+  # 如果你需要启用自定义图片上传方式，请注释上方默认行为，取消下方注释，自行编写函数
+  # 并根据实际上传方式进行参数调整，以下为示例 注意 imageUploader: > 参数中的 > 不可删除
+  # imageUploader: >
+  #   function (file) {
+  #     let formData = new FormData();
+  #     let headers = new Headers();
+  #     formData.append("file", file);
+  #     formData.append("album_id", "10");
+  #     formData.append("permission", "0");
+  #     headers.append("Authorization", "Bearer 你的Token");
+  #     headers.append("Accept", "application/json");
+  #     return fetch("你的 API 上传地址", {
+  #       method: "POST",
+  #       headers: headers,
+  #       body: formData,
+  #     })
+  #       .then((resp) => resp.json())
+  #       .then((resp) => resp.data.links.url);
+  #   }
+
+  # 以下为可选配置，后续若有新增/修改配置参数可在此自行添加/修改
   option:
-    meta: ["nick", "mail", "link"]
+    pageSize: 10
+    requiredMeta: ["nick", "mail"]
+    login: enable
+    copyright: true
+    # turnstileKey:
     locale:
-      placeholder: 生活明朗，万物可爱
+      admin: 王先森
+      sofa: 欢迎使用 王先森 主题！
+      placeholder: "生活明朗，万物可爱"
+    #   reactionTitle: 就现在，表明你的态度！
+    #   reaction0: 0
+    #   reaction1: 1
+    #   reaction2: 2
+    #   reaction3: 3
+    #   reaction4: 4
+    #   reaction5: 5
+    #   level0: 0
+    #   level1: 1
+    #   level2: 2
+    #   level3: 3
+    #   level4: 4
+    #   level5: 5
+    #   level6: 6
+    #   level7: ...
+    # emoji:
+    #   [
+    #     "https://example.com/.../Sticker-100/",
+    #   ]
+    # reaction:
+    #   [
+    #     "https://example.com/.../Sticker-100/0.png",
+    #     "https://example.com/.../Sticker-100/1.png",
+    #     "https://example.com/.../Sticker-100/2.png",
+    #     "https://example.com/.../Sticker-100/3.png",
+    #     "https://example.com/.../Sticker-100/4.png",
+    #     "https://example.com/.../Sticker-100/5.png",
+    #   ]
 
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
   envId: 
-  region: ap-beijing
+  region: 
   visitor: false
   option:
 
@@ -409,56 +504,28 @@ crisp:
 footer:
   owner:
     enable: true
-    since: 2021
+    since: 2020
   custom_text:
-  runtime:
-    enable: false
-    launch_time: 04/01/2021 00:00:00 # 网站上线时间
-    work_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg
-    work_description: 距离月入25k也就还差一个大佬带我~
-    offduty_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-下班啦.svg
-    offduty_description: 下班了就该开开心心的玩耍，嘿嘿~
   # 徽标部分配置项 https://shields.io/
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
   bdageitem:
-    - link: https://hexo.io/ #徽标指向网站链接
-      shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
-      message: 博客框架为Hexo_v5.4.0 #徽标提示语
-    - link: https://github.com/wangxiansen-my/hexo-theme-wangxiansen
-      shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
-      message: 本站使用AnZhiYu主题
-    - link: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
-      shields: https://images.boysec.cn/medias/CDN-%E5%8F%88%E6%8B%8D%E4%BA%91-00b6ff.svg
-      message: 本站使用又拍云为静态资源提供CDN加速
-    - link: https://beian.miit.gov.cn/
-      shields: https://images.boysec.cn/medias/beian.svg
-      message: 本站已在工信部备案，备案号京ICP备-2022004840号
-    - link: https://icp.gov.moe/?keyword=20212623
-      shields: https://images.boysec.cn/medias/%E8%90%8CICP%E5%A4%87-20212623.svg
-      message: 本站已加入萌ICP豪华套餐，萌ICP备20212623号
-  socialBar:
-    enable: false
-    centerImg:
-    left:
-      # - title: email
-      #   link: mailto:anzhiyu-c@qq.com
-      #   icon: anzhiyufont anzhiyu-icon-envelope
-      # - title: 微博
-      #   link: https://weibo.com/u/6378063631
-      #   icon: anzhiyufont anzhiyu-icon-weibo
-      # - title: facebook
-      #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
-      #   icon: anzhiyufont anzhiyu-icon-facebook1
-    right:
-      # - title: Github
-      #   link: https://github.com/anzhiyu-c
-      #   icon: anzhiyufont anzhiyu-icon-github
-      # - title: Bilibili
-      #   link: https://space.bilibili.com/372204786
-      #   icon: anzhiyufont anzhiyu-icon-bilibili
-      # - title: 抖音
-      #   link: https://v.douyin.com/DwCpMEy/
-      #   icon: anzhiyufont anzhiyu-icon-tiktok
+    enable: true
+    list:
+      - link: https://hexo.io/ #徽标指向网站链接
+        shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
+        message: 博客框架为Hexo_v5.4.0 #徽标提示语
+      - link: https://github.com/wangxiansen-my/hexo-theme-wangxiansen
+        shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
+        message: 本站使用WangXianSen主题
+      - link: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
+        shields: https://images.boysec.cn/medias/CDN-%E5%8F%88%E6%8B%8D%E4%BA%91-00b6ff.svg
+        message: 本站使用又拍云为静态资源提供CDN加速
+      - link: https://beian.miit.gov.cn/
+        shields: https://images.boysec.cn/medias/beian.svg
+        message: 本站已在工信部备案，备案号京ICP备-2022004840号
+      - link: https://icp.gov.moe/?keyword=20212623
+        shields: https://images.boysec.cn/medias/%E8%90%8CICP%E5%A4%87-20212623.svg
+        message: 本站已加入萌ICP豪华套餐，萌ICP备20212623号
   list:
     enable: true
     randomFriends: 3
@@ -493,13 +560,20 @@ footer:
             link: /cookies/
           - title: 版权协议
             link: /copyright/
+  footerBar:
+    enable: true
+    authorLink: /
+    cc:
+      enable: true
+      link: /copyright
+
 
 # Analysis
 # --------------------------------------
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics: 
+baidu_analytics:
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -560,7 +634,7 @@ theme_color:
   text_selection: "#2128bd"
   link_color: "var(--anzhiyu-fontcolor)"
   meta_color: "var(--anzhiyu-fontcolor)"
-  #   hr_color: "#A4D8FA"
+  hr_color: "#4259ef23"
   code_foreground: "#fff"
   code_background: "var(--anzhiyu-code-stress)"
   toc_color: "#3b70fc"
@@ -570,8 +644,22 @@ theme_color:
   meta_theme_color_light: "#f7f9fe"
   meta_theme_color_dark: "#18171d"
 
+# 移动端侧栏
+sidebar:
+  site_data:
+    archive: false
+    tag: false
+    category: false
+  menus_items: true
+  tags_cloud: true
+  display_mode: true
+  nav_menu_project: true
+
+# 文章h2添加分隔线
+h2Divider: false
+
 # 表格隔行变色
-table_interlaced_discoloration: false
+table_interlaced_discoloration: true
 
 # 首页双栏显示
 article_double_row: true
@@ -667,7 +755,7 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size: 17px
+  global-font-size: 16px
   code-font-size:
   font-family:
   code-font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
@@ -704,7 +792,7 @@ subtitle:
   source: 1
   # 如果关闭打字效果，subtitle 只会显示 sub 的第一行文字
   sub:
-    - 生活明朗&#44;万物可爱&#44;人间值得&#44;未来可期.
+    # - 生活明朗&#44;万物可爱&#44;人间值得&#44;未来可期.
 
 # Loading Animation (加载动画)
 preloader:
@@ -724,13 +812,13 @@ preloader:
 aside:
   enable: true
   hide: false
-  button: false
-  mobile: false # display on mobile
+  button: true
+  mobile: true # display on mobile
   position: right # left or right
-  display:
+  display: # 控制对应详情页面是否显示侧边栏
     archive: true
     tag: true
-    category: false
+    category: true
   card_author:
     enable: true
     description: <div style="line-height:1.38;margin:.6rem 0;text-align:justify;color:rgba(255,255,255,.8)">这里分享关于<b style="color:#fff">运维、安全、DevOps、Python</b>相关的经验和笔记。</div><div style="line-height:1.38;margin:.6rem 0;text-align:justify;color:rgba(255,255,255,.8)">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> # 默认为站点描述
@@ -743,7 +831,7 @@ aside:
     face: https://images.boysec.cn/medias/img/630efc6e3e794.png
     backFace: https://images.boysec.cn/medias/img/630efca2abb02.png
   card_recent_post:
-    enable: false
+    enable: true
     limit: 5 # if set 0 will show all
     sort: date # date or updated
     sort_order: # Don't modify the setting unless you know how it works
@@ -761,7 +849,7 @@ aside:
       # - Hexo
       # - 前端
   card_archives:
-    enable: false
+    enable: true
     type: monthly # yearly or monthly
     format: MMMM YYYY # eg: YYYY年MM月
     order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
@@ -770,7 +858,7 @@ aside:
   card_webinfo:
     enable: true
     post_count: true
-    last_push_date: true
+    last_push_date: false
     sort_order: # Don't modify the setting unless you know how it works
 
 # busuanzi count for PV / UV in site
@@ -786,7 +874,7 @@ runtimeshow:
   enable: true
   publish_date: 4/1/2021 00:00:00
 
-# Aside widget - Newest Comments
+# Console - Newest Comments
 newest_comments:
   enable: true
   sort_order: # Don't modify the setting unless you know how it works
@@ -819,6 +907,9 @@ translate:
 
 # Read Mode (閲读模式)
 readmode: true
+
+# 中控台
+centerConsole: true
 
 # dark mode
 darkmode:
@@ -977,20 +1068,20 @@ home_top:
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: false
-    swiper_js: https://images.boysec.cn/js/swiper-bundle.min.js
-    swiper_css: https://images.boysec.cn/css/swiper-bundle.min.css
+    swiper_css: https://images.boysec.cn/css/swiper-bundle.min.css #swiper css依赖
+    swiper_js: https://images.boysec.cn/js/swiper-bundle.min.js #swiper js依赖
   banner:
     tips: 新品主题
     title: Theme-WangXianSen
-    image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://www.boysec.cn
+    image: https://images.boysec.cn/img/202308081442117.jpg
+    link: https://github.com/wangxiansen-my/hexo-theme-wangxiansen
 
 # 朋友圈配置
 friends_vue:
   enable: true
   vue_js: https://images.boysec.cn/js/friends-v1.1.2.js
-  apiurl: https://friends.boysec.cn/ # 朋友圈后端地址
-  top_background: https://images.boysec.cn/tour/20220227151827.jpg
+  apiurl:  # 朋友圈后端地址
+  top_background: 
 
 # 黑色模式粒子效果canvas
 universe:
@@ -998,15 +1089,12 @@ universe:
 
 # 页面卡片顶部气泡升起效果
 bubble:
-  enable: true
+  enable: false
 
 #  控制台打印信息
 console:
   enable: true
 
-# 中控台
-centerConsole:
-  enable: true
 # 51a统计配置
 LA:
   enable: false
@@ -1084,10 +1172,9 @@ greetingBox:
     #   startTime: 20
     #   endTime: 24
 
-
 # 快捷键配置
 shortcutKey:
-  enable: true
+  enable: false
   delay: 100 # 所有键位延时触发而不是立即触发（包括shift，以解决和浏览器键位冲突问题）
   shiftDelay: 200 # shift按下延时多久开启
 
@@ -1097,6 +1184,25 @@ accesskey:
 
 # 密码相关
 encrypt:
+  enable: true
+
+# 友情链接顶部相关配置
+linkPageTop:
+  enable: false
+  title: 与数百名博主无限进步
+  # 添加博主友链的评论自定义格式
+  addFriendPlaceholder: "昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"
+
+# 缩略图后缀 archive/tag/category 页面单独开启后缀
+pageThumbnailSuffix: ""
+
+# 隐私协议弹窗
+agreementPopup:
+  enable: true
+  url: /privacy
+
+# 右键菜单
+rightClickMenu:
   enable: true
 
 # envelope_comment
@@ -1119,35 +1225,6 @@ envelope_comment:
   front_matter: #【可选】comments页面的 front_matter 配置
     title: 留言板
     comments: true
-#emoji:
-#  Web服务: 🌐
-#  安全: ⚠
-#  监控: 🕵
-#  自动化运维: 📟
-#  数据库: 📚
-#  虚心分享: 📝
-#  虚拟化运维: 🌥️
-
-# 友情链接顶部相关配置
-linkPageTop:
-  enable: false
-  title: 与数百名博主无限进步
-  
-# tag-plugins-plus
-# see https://akilar.top/posts/615e2dec/
-tag_plugins:
-  enable: false # 开关
-  priority: 5 #过滤器优先权
-  issues: false #issues标签依赖注入开关
-  link:
-    placeholder: /img/link.png #link_card标签默认的图标图片
-  CDN:
-    anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
-    jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
-    issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
-    iconfont: //at.alicdn.com/t/c/font_2752511_brf89epkrru.js #参看https://akilar.top/posts/d2ebecef/
-    carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
-    tag_plugins_css: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
@@ -1158,19 +1235,19 @@ inject:
 
   bottom:
     # 自定义js
-    #- <script src="/js/utils.js"></script>
+    # - <script src="/js/xxx"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要请不要修改
 CDN:
   # The CDN provider of internal scripts (主题内部 js 的 cdn 配置)
-  # option: local/elemecdn/jsdelivr/unpkg/cdnjs/custom
+  # option: local/elemecdn/jsdelivr/unpkg/cdnjs/onmicrosoft/cbd/custom
   # Dev version can only choose. ( dev版的主题只能设置为 local )
   internal_provider: local
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
-  # option: elemecdn/jsdelivr/unpkg/cdnjs/custom/cbd
+  # option: elemecdn/jsdelivr/unpkg/cdnjs/onmicrosoft/cbd/custom
   third_party_provider: cbd
 
   # Add version number to CDN, true or false
@@ -1178,17 +1255,23 @@ CDN:
 
   # Custom format
   # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
-  custom_format: https://npm.elemecdn.com/${name}@latest/${file}
+  custom_format: # https://npm.elemecdn.com/${name}@latest/${file}
 
   option:
     # main_css:
     # main:
     # utils:
     # translate:
+    # random_friends_post_js:
+    # right_click_menu_js:
+    # comment_barrage_js:
+    # ai_abstract_js:
     # local_search:
     # algolia_js:
-    # algolia_search_v4:
-    # instantsearch_v4:
+    # algolia_search:
+    # instantsearch:
+    # docsearch_js:
+    # docsearch_css:
     # pjax:
     # blueimp_md5:
     # valine:
@@ -1208,8 +1291,8 @@ CDN:
     # instantpage:
     # typed:
     # pangu:
-    # fancybox_css_v4:
-    # fancybox_v4:
+    # fancybox_css:
+    # fancybox:
     # medium_zoom:
     # snackbar_css:
     # snackbar:

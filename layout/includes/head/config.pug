@@ -41,14 +41,17 @@
   }
 
   let copyright = 'undefined';
-  if (theme.copy.enable && theme.copy.copyright.enable){
+  if (theme.copy.enable){
     copyright = JSON.stringify({
+      copy: theme.copy.enable,
+      copyrightEbable: theme.copy.copyright.enable,
       limitCount: theme.copy.copyright.limit_count,
       languages: {
         author: _p("copy_copyright.author") + ': ' + config.author,
         link: _p("copy_copyright.link") + ': ',
         source: _p("copy_copyright.source") + ': ' + config.title,
-        info: _p("copy_copyright.info")
+        info: _p("copy_copyright.info"),
+        copySuccess: _p("copy_copyright.copySuccess")
       }
     })
   }
@@ -109,9 +112,53 @@
     })
   }
 
+  let preloader = 'undefined'
+  if (theme.preloader && theme.preloader.enable) {
+    preloader = JSON.stringify({
+      source: theme.preloader.source
+    })
+  }
+
+  let commentBarrageConfig = 'undefined'
+  if (theme.comment_barrage_config && theme.comment_barrage_config.enable) {
+    commentBarrageConfig = JSON.stringify(theme.comment_barrage_config)
+  }
+
+  let greetingBox = 'undefined'
+  if (theme.greetingBox && theme.greetingBox.enable) {
+    greetingBox = JSON.stringify(theme.greetingBox)
+  }
+
+  let LA51 = 'undefined'
+  if (theme.LA && theme.LA.enable) {
+    LA51 = JSON.stringify(theme.LA)
+  }
+
+  let shortcutKey = 'undefined'
+  if (theme.shortcutKey && theme.shortcutKey.enable) {
+    shortcutKey = JSON.stringify(theme.shortcutKey)
+  }
+
+  let diytitle = 'undefined'
+  if (theme.diytitle && theme.diytitle.enable) {
+    diytitle = JSON.stringify(theme.diytitle)
+  }
+
+  let linkPageTop = 'undefined'
+  if (theme.linkPageTop && theme.linkPageTop.enable) {
+    linkPageTop = JSON.stringify(theme.linkPageTop)
+  }
+
 script.
-  const GLOBAL_CONFIG = { 
+  const GLOBAL_CONFIG = {
+    linkPageTop: !{linkPageTop},
+    diytitle: !{diytitle},
+    LA51: !{LA51},
+    greetingBox: !{greetingBox},
+    twikooEnvId: '!{theme.twikoo.envId}',
+    commentBarrageConfig:!{commentBarrageConfig},
     root: '!{config.root}',
+    preloader: !{preloader},
     friends_vue_info: !{friends_vue_info},
     navMusic: !{theme.nav_music.enable},
     mainTone: !{mainTone},
@@ -151,5 +198,6 @@ script.
     isPhotoFigcaption: !{theme.photofigcaption},
     islazyload: !{theme.lazyload.enable},
     isAnchor: !{theme.anchor},
-    shortcutKey: !{theme.shortcutKey.enable}
+    shortcutKey: !{shortcutKey},
+    autoDarkmode: !{theme.darkmode.enable && theme.darkmode.autoChangeMode === 1}
   }
