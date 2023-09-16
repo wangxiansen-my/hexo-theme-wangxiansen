@@ -15,43 +15,53 @@ hexo.extend.filter.register("before_generate", () => {
   const thirdPartySrc = hexo.render.renderSync({ path: path.join(hexo.theme_dir, "/plugins.yml"), engine: "yaml" });
   const internalSrc = {
     main: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/main.js",
       version,
     },
     utils: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/utils.js",
       version,
     },
     translate: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/tw_cn.js",
       version,
     },
     local_search: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/search/local-search.js",
       version,
     },
     algolia_js: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/search/algolia.js",
       version,
     },
     random_friends_post_js: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/boysec/random_friends_post.js",
       version,
     },
     right_click_menu_js: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/boysec/right_click_menu.js",
       version,
     },
     comment_barrage_js: {
-      name: "hexo-theme-anzhiyu",
+      name: "hexo-theme-boysec",
       file: "js/boysec/comment_barrage.js",
+      version,
+    },
+    ai_abstract_js: {
+      name: "hexo-theme-boysec",
+      file: "js/boysec/ai_abstract.js",
+      version,
+    },
+    people_js: {
+      name: "hexo-theme-boysec",
+      file: "js/boysec/people.js",
       version,
     },
   };
@@ -88,6 +98,7 @@ hexo.extend.filter.register("before_generate", () => {
         elemecdn: `https://npm.elemecdn.com/${name}${verType}/${file}`,
         onmicrosoft: `https://npm.onmicrosoft.cn/${name}${verType}/${file}`,
         cbd: `https://cdn.cbd.int/${name}${verType}/${file}`,
+        anheyu: `https://cdn.anheyu.com/npm/${name}${verType}/${min_file}`,
         custom: (CDN.custom_format || "").replace(/\$\{(.+?)\}/g, (match, $1) => value[$1]),
       };
 

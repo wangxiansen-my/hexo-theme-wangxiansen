@@ -21,36 +21,88 @@ body[data-type='about'] #web_bg {
   background: var(--anzhiyu-background);
 }
 
-#about-page .author-box {
-  position: relative;
-}
+#about-page
+  padding-top: 1rem;
+  .author-box
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 16px 0;
+    .author-tag-left
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      +maxWidth768()
+        display: none
+      .author-tag:first-child, 
+      .author-tag:last-child
+        margin-right: -16px
+    .author-tag-right
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      +maxWidth768()
+        display: none
+      .author-tag:first-child, 
+      .author-tag:last-child
+        margin-left: -16px
+    .author-tag
+      transform: translate(0,-4px);
+      padding: 1px 8px;
+      background: var(--anzhiyu-card-bg);
+      border: var(--style-border-always);
+      border-radius: 40px;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--anzhiyu-shadow-lightblack);
+      animation: 6s ease-in-out 0s infinite normal none running floating;
+      &:nth-child(1)
+        animation-delay: 0s;
+      &:nth-child(2)
+        animation-delay: .6s;
+      &:nth-child(3)
+        animation-delay: 1.2s;
+      &:nth-child(4)
+        animation-delay: 1.8s;
 
-#about-page .author-box .author-img {
-  margin: auto;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 180px;
-  height: 180px;
-}
-
-#about-page .author-box .author-img img {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 180px;
-  height: 180px;
-}
-
-#about-page .author-box .image-dot {
-  width: 45px;
-  height: 45px;
-  background: #6bdf8f;
-  position: absolute;
-  border-radius: 50%;
-  border: 6px solid var(--anzhiyu-background);
-  top: 50%;
-  left: 50%;
-  transform: translate(35px, 45px);
-}
+    .author-img
+      margin: 0 30px;
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      position: relative;
+      background: var(--anzhiyu-secondbg);
+      user-select: none;
+      transition: .3s;
+      +maxWidth768()
+        width: 120px;
+        height: 120px;
+      img
+        border-radius: 50%;
+        overflow: hidden;
+        width: 180px;
+        height: 180px;
+        +maxWidth768()
+          width: 120px;
+          height: 120px;
+      &:hover
+        transform: scale(1.1);
+      &:before
+        content: '';
+        transition: 1s;
+        width: 30px;
+        height: 30px;
+        background: var(--anzhiyu-green);
+        position: absolute;
+        border-radius: 50%;
+        border: 5px solid var(--anzhiyu-background);
+        bottom: 5px;
+        right: 10px;
+        z-index: 2;
+        +maxWidth768()
+          bottom: -5px;
+          right: -5px;
 
 .author-content {
   display: flex;
@@ -389,12 +441,13 @@ body[data-type='about'] #web_bg {
   bottom: 0;
   left: 0;
   width: 100%;
+  color: var(--font-color);
   background: var(--anzhiyu-maskbg);
   padding: 0.5rem 2rem;
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transform: translateZ(0);
-  transition: 1s ease-in-out;
+  transition: all 1s, color 0s ease-in-out;
   font-size: 20px;
 }
 
@@ -656,7 +709,7 @@ body[data-type='about'] #web_bg {
   left: 0;
 }
 
-@media screen and (max-width: 1201px) {
+@media screen and (max-width: 1200px) {
   .author-content-item.personalities .image {
     width: 180px;
   }
@@ -897,7 +950,6 @@ body[data-type='about'] #web_bg {
 
 .author-content-item.careers {
   min-height: 400px;
-  background-color: #ffffff;
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -913,18 +965,8 @@ body[data-type='about'] #web_bg {
 }
 
 .author-content-item.careers .career-item {
-  flex: 1;
   display: flex;
-  justify-content: space-between;
-}
-
-.author-content-item.careers .career-item .career-item-left {
-  display: flex;
-  align-items: center;
-}
-
-.author-content-item.careers .career-item .career-item-right {
-  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -962,6 +1004,7 @@ body[data-type='about'] #web_bg {
   bottom: 20px;
   width: 100%;
   transition: 0.6s;
+  z-index: -1;
 }
 
 :root {

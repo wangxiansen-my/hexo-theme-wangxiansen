@@ -173,7 +173,7 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: https://images.boysec.cn/medias/logo.png
+favicon: /favicon.ico
 
 # Avatar (头像)
 avatar:
@@ -313,9 +313,11 @@ related_post:
 photofigcaption: false
 
 # post_pagination (分页)
-# value: 1 || 2 || false
+# value: 1 || 2 || 3 || 4 || false
 # 1: The 'next post' will link to old post
 # 2: The 'next post' will link to new post
+# 3: 只有下一篇，并且只在文章滚动到评论区时显示下一篇文章(旧文章)
+# 4: 只有下一篇，并且只在文章滚动到评论区时显示下一篇文章(旧文章) 显示图片cover
 # false: disable pagination
 post_pagination: 2
 
@@ -627,9 +629,9 @@ site_verification:
 
 theme_color:
   enable: true
-  main: "#3b70fc"
+  main: "#425AEF"
   dark_main: "#f2b94b"
-  paginator: "#3b70fc"
+  paginator: "#425AEF"
   #   button_hover: "#FF7242"
   text_selection: "#2128bd"
   link_color: "var(--anzhiyu-fontcolor)"
@@ -637,9 +639,9 @@ theme_color:
   hr_color: "#4259ef23"
   code_foreground: "#fff"
   code_background: "var(--anzhiyu-code-stress)"
-  toc_color: "#3b70fc"
-  #   blockquote_padding_color: "#3b70fc"
-  #   blockquote_background_color: "#3b70fc"
+  toc_color: "#425AEF"
+  #   blockquote_padding_color: "#425AEF"
+  #   blockquote_background_color: "#425AEF"
   scrollbar_color: "var(--anzhiyu-scrollbar)"
   meta_theme_color_light: "#f7f9fe"
   meta_theme_color_dark: "#18171d"
@@ -999,7 +1001,7 @@ aplayerInject:
 snackbar:
   enable: true
   position: top-center
-  bg_light: "#3b70fc" # The background color of Toast Notification in light mode
+  bg_light: "#425AEF" # The background color of Toast Notification in light mode
   bg_dark: "#1f1f1f" # The background color of Toast Notification in dark mode
 
 # https://instant.page/
@@ -1083,7 +1085,7 @@ friends_vue:
   apiurl:  # 朋友圈后端地址
   top_background: 
 
-# 黑色模式粒子效果canvas
+# 深色模式粒子效果canvas
 universe:
   enable: true
 
@@ -1204,6 +1206,15 @@ agreementPopup:
 # 右键菜单
 rightClickMenu:
   enable: true
+# 首页随便逛逛people模式 而非技能点模式，关闭后为技能点模式需要配置creativity.yml
+peoplecanvas:
+  enable: false
+  img: https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png
+
+# 动效
+dynamicEffect:
+  postTopRollZoomInfo: true # 文章顶部滚动时缩放
+  pageCommentsRollZoom: true # 非文章页面评论滚动时缩放显示（仅仅Twikoo生效）
 
 # envelope_comment
 # see https://akilar.top/posts/e2d3c450/
@@ -1266,6 +1277,7 @@ CDN:
     # right_click_menu_js:
     # comment_barrage_js:
     # ai_abstract_js:
+    # people_js:
     # local_search:
     # algolia_js:
     # algolia_search:

@@ -6,22 +6,23 @@
   box-shadow: var(--anzhiyu-shadow-lightblack);
   display: flex;
   transition: all 0.3s ease 0s;
-  margin: .3rem auto .5rem;
+  margin: .3rem auto 0.5rem;
   border: var(--style-border);
   align-items: center;
   height: 50px;
   width: 100%;
-  max-width: 1370px;
+  max-width: calc(1400px - 3rem);
+  animation: slide-in .6s 0s backwards;
 }
 @media screen and (max-width: 1400px) {
   #bbTimeList {
-    max-width: calc(100% - 30px);
+    max-width: calc(100% - 3rem);
     animation: slide-in 0.6s 0s backwards;
   }
 }
 @media screen and (max-width: 768px) {
   div#bbTimeList {
-    margin: 0 20px 5px;
+    margin: 0 20px 15px;
   }
 }
 [data-theme="dark"] #bbTimeList {
