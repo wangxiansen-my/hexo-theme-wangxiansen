@@ -49,6 +49,21 @@ window.addEventListener("load", () => {
     const reg = /\.json$/;
     return reg.test(url);
   };
+   
+  // 转义HTML特殊字符
+  const escapeHTML = str => {
+    return str.replace(/[&<>"'/]/g, tag => {
+      const tags = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+        "/": "&#x2F;"
+      };
+      return tags[tag] || tag;
+    });
+  };
 
   const fetchData = async path => {
     let data = [];
@@ -183,14 +198,15 @@ window.addEventListener("load", () => {
 
               // highlight all keywords
               keywords.forEach(keyword => {
-                const regS = new RegExp(keyword, "gi");
-                matchContent = matchContent.replace(regS, '<span class="search-keyword">' + keyword + "</span>");
-                dataTitle = dataTitle.replace(regS, '<span class="search-keyword">' + keyword + "</span>");
+                  const regS = new RegExp(keyword, "gi");
+                  matchContent = matchContent.replace(regS, '<span class="search-keyword">' + keyword + '</span>');
+                  dataTitle = dataTitle.replace(regS, '<span class="search-keyword">' + keyword + '</span>');
               });
 
               str += '<div class="local-search__hit-item">';
               if (oneImage) {
-                str += `<div class="search-left"><img src=${oneImage} alt=${dataTitle} data-fancybox='gallery'>`;
+				let cleanDataTitle = dataTitle.replace(/<\/?span[^>]*>/g, '');
+                str += `<div class="search-left"><img src="${oneImage}" alt="${cleanDataTitle}" data-fancybox="gallery">`;
               } else {
                 str += '<div class="search-left" style="width:0">';
               }
@@ -198,32 +214,15 @@ window.addEventListener("load", () => {
               str += "</div>";
 
               if (oneImage) {
-                str +=
-                  '<div class="search-right"><a href="' +
-                  dataUrl +
-                  '" class="search-result-title">' +
-                  dataTitle +
-                  "</a>";
+                    str += `<div class="search-right"><a href="${dataUrl}" class="search-result-title">${dataTitle}</a>`;
               } else {
-                str +=
-                  '<div class="search-right" style="width: 100%"><a href="' +
-                  dataUrl +
-                  '" class="search-result-title">' +
-                  dataTitle +
-                  "</a>";
+                    str += `<div class="search-right" style="width: 100%"><a href="${dataUrl}" class="search-result-title">${dataTitle}</a>`;
               }
 
               count += 1;
 
               if (dataContent !== "") {
-                str +=
-                  '<p class="search-result" onclick="pjax.loadUrl(`' +
-                  dataUrl +
-                  '`)">' +
-                  pre +
-                  matchContent +
-                  post +
-                  "</p>";
+                str += `<p class="search-result" onclick="pjax.loadUrl('${dataUrl}')">${pre}${matchContent}${post}</p>`;
               }
               if (dataTags.length) {
                 str += '<div class="search-result-tags">';
@@ -235,7 +234,7 @@ window.addEventListener("load", () => {
                     '<a class="tag-list" href="/tags/' +
                     element +
                     '/" data-pjax-state="" one-link-mark="yes">#' +
-                    element +
+                    (element) +
                     "</a>";
                 }
 
@@ -248,7 +247,7 @@ window.addEventListener("load", () => {
         if (count === 0) {
           str +=
             '<div id="local-search__hits-empty">' +
-            GLOBAL_CONFIG.localSearch.languages.hits_empty.replace(/\$\{query}/, this.value.trim()) +
+            escapeHTML(GLOBAL_CONFIG.localSearch.languages.hits_empty.replace(/\$\{query}/, this.value.trim())) +
             "</div>";
         }
         str += "</div>";
