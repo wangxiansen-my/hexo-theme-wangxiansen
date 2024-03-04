@@ -281,7 +281,7 @@ body[data-type='about'] #web_bg {
 
 #statistic div span:first-child {
   opacity: 0.8;
-  font-size: 0.6rem;
+  font-size: 12px;
 }
 
 #statistic div span:last-child {
@@ -320,21 +320,24 @@ body[data-type='about'] #web_bg {
 
 .author-content-item .card-content .banner-button-group .banner-button {
   height: 40px;
-  width: 140px;
   border-radius: 20px;
   justify-content: center;
-  background: var(--anzhiyu-card-bg);
-  color: var(--font-color);
-  display: flex;
+  background: var(--anzhiyu-white-op);
+  color: var(--anzhiyu-white);
+  display: inline-flex;
   align-items: center;
   z-index: 1;
   transition: 0.3s;
   cursor: pointer;
   border-bottom: 0 !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
 }
 
 .author-content-item .card-content .banner-button-group .banner-button i, .author-content-item .card-content .banner-button-group .banner-button svg {
-  font-size: 1rem;
+  margin-right: 0.25rem;
+  font-size: 22px;
 }
 
 .author-content-item .card-content .banner-button-group .banner-button .banner-button-text {
@@ -342,8 +345,8 @@ body[data-type='about'] #web_bg {
 }
 
 #about-page .author-content-item .card-content .banner-button-group .banner-button i, #about-page .author-content-item .card-content .banner-button-group .banner-button svg {
-  font-size: 1.5rem;
-  margin-right: 0;
+  font-size: 22px;
+  margin-right: 0.25rem;
   height: 40px;
   max-width: 40px;
   display: flex;
@@ -475,7 +478,7 @@ body[data-type='about'] #web_bg {
 
 .author-content-item.selfInfo .selfInfo-title {
   opacity: 0.8;
-  font-size: 0.6rem;
+  font-size: 12px;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -531,7 +534,7 @@ body[data-type='about'] #web_bg {
 
 .author-content-item .author-content-item-tips {
   opacity: 0.8;
-  font-size: 0.6rem;
+  font-size: 12px;
   margin-bottom: 0.5rem;
 }
 
@@ -795,10 +798,11 @@ body[data-type='about'] #web_bg {
     background: none;
     padding: 0;
     width: auto;
+    backdrop-filter: unset;
   }
 
   .author-content-item .card-content .banner-button-group .banner-button i, .author-content-item .card-content .banner-button-group .banner-button svg {
-    margin-right: 0;
+    margin-right: 0.25rem;
     font-size: 1.5rem;
     background: white;
     border-radius: 50%;
@@ -809,6 +813,7 @@ body[data-type='about'] #web_bg {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--anzhiyu-fontcolor);
   }
 
   .author-content-item .card-content .banner-button-group .banner-button:hover i {

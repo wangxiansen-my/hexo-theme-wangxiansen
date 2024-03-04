@@ -10,7 +10,7 @@ module.exports.config = {
    */
   serviceWorker: {
     escape: 0,
-    cacheName: "AnZhiYuThemeCache",
+    cacheName: "WangXiansenThemeCache",
     debug: false,
   },
   register: {
@@ -79,6 +79,9 @@ module.exports.config = {
     },
   }
 };
+
+/** 跳过处理番剧封面 */
+module.exports.skipRequest = request => request.url.startsWith('https://i0.hdslb.com');
 
 /**
  * 缓存列表

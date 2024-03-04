@@ -103,7 +103,7 @@
     if hexo-config('mainTone.enable')
       background-color: var(--anzhiyu-bar-background)
     else 
-      background-color: var(--anzhiyu-main)
+      background-color: transparent
 
     // #nav
     #nav
@@ -246,11 +246,12 @@
       transform-origin: left top
       will-change: transform;
     +maxWidth1400()
-      padding: 3.5rem
+      padding: 0 3.5rem
       width 100%
       left: 0
 
     +maxWidth768()
+      padding: 11rem 6% 0;
       align-items: center;
       if hexo-config('mainTone.enable')
         &:after

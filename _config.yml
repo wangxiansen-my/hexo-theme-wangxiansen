@@ -108,42 +108,6 @@ docsearch:
   apiKey: # see email
   indexName: # see email
   option:
-    placeholder: "Ctrl/⌘ + K 唤醒搜索服务"
-    maxResultsPerGroup: 7
-    translations:
-      button:
-        buttonText: "搜索"
-        buttonAriaLabel: "搜索"
-      modal:
-        searchBox:
-          resetButtonTitle: "清空"
-          resetButtonAriaLabel: "清空"
-          cancelButtonText: "取消"
-          cancelButtonAriaLabel: "取消"
-        startScreen:
-          recentSearchesTitle: "最近搜索历史"
-          noRecentSearchesText: "搜索历史为空"
-          saveRecentSearchButtonTitle: "保存搜索记录"
-          removeRecentSearchButtonTitle: "清除搜索记录"
-          favoriteSearchesTitle: "收藏夹"
-          removeFavoriteSearchButtonTitle: "移出收藏夹"
-        errorScreen:
-          titleText: "未能获取搜索结果"
-          helpText: "您可能需要检查您的网络连接"
-        footer:
-          selectText: "选择"
-          selectKeyAriaLabel: "回车键"
-          navigateText: "切换"
-          navigateUpKeyAriaLabel: "方向键上"
-          navigateDownKeyAriaLabel: "方向键下"
-          closeText: "关闭"
-          closeKeyAriaLabel: "退出键"
-          searchByText: "搜索服务提供: DocSearch by"
-        noResultsScreen:
-          noResultsText: "未搜索到相关内容"
-          suggestedQueryText: "您可尝试搜索"
-          reportMissingResultsText: "确认搜索结果是正确的？"
-          reportMissingResultsLinkText: "反馈给Algolia"
 
 # Local search
 local_search:
@@ -514,10 +478,10 @@ footer:
     enable: true
     list:
       - link: https://hexo.io/ #徽标指向网站链接
-        shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
+        shields: https://images.boysec.cn/medias/Frame-Hexo.svg #徽标API
         message: 博客框架为Hexo_v5.4.0 #徽标提示语
       - link: https://github.com/wangxiansen-my/hexo-theme-wangxiansen
-        shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
+        shields: https://images.boysec.cn/medias/Theme-WangXiansen.svg
         message: 本站使用WangXianSen主题
       - link: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
         shields: https://images.boysec.cn/medias/CDN-%E5%8F%88%E6%8B%8D%E4%BA%91-00b6ff.svg
@@ -831,7 +795,7 @@ aside:
   card_weixin:
     enable: true
     face: https://images.boysec.cn/medias/img/630efc6e3e794.png
-    backFace: https://images.boysec.cn/medias/img/630efca2abb02.png
+    backFace: https://images.boysec.cn/medias/img/202401021503.png
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -911,7 +875,23 @@ translate:
 readmode: true
 
 # 中控台
-centerConsole: true
+centerConsole:
+  enable: true
+  card_tags:
+    enable: true
+    limit: 40 # if set 0 will show all
+    color: false
+    sort_order: # Don't modify the setting unless you know how it works
+    highlightTags:
+      # - Hexo
+      # - 前端
+  card_archives:
+    enable: true
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+    sort_order: # Don't modify the setting unless you know how it works
 
 # dark mode
 darkmode:
@@ -1083,6 +1063,7 @@ friends_vue:
   enable: true
   vue_js: https://images.boysec.cn/js/friends-v1.1.2.js
   apiurl:  # 朋友圈后端地址
+  top_tips: 使用 友链朋友圈 订阅友链最新文章
   top_background: 
 
 # 深色模式粒子效果canvas
@@ -1128,7 +1109,11 @@ nav_music:
   console_widescreen_music: false # 宽屏状态控制台显示音乐而不是标签 enable为true 控制台依然会显示
   id: 7555042608
   server: netease
+  volume: 0.7 # 默认音量
   all_playlist: https://y.qq.com/n/ryqq/playlist/8802438608
+
+# 路径为 /music 的音乐页面默认加载的歌单 1. nav_music 2. custom
+music_page_default: nav_music
 
 # 评论匿名邮箱
 visitorMail:
