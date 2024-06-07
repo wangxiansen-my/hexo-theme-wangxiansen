@@ -1111,7 +1111,7 @@ const anzhiyu = {
         element.style.opacity = 0;
         travellingsTimer && clearTimeout(travellingsTimer);
       },
-      5000,
+      4000,
       "取消"
     );
     travellingsTimer = setTimeout(function () {
@@ -1120,7 +1120,7 @@ const anzhiyu = {
      } else {
     window.open("https://www.travellings.cn/go.html", "_blank");
   }
-}, "5000");
+}, "4000");
   },
 
   // 工具函数替换字符串

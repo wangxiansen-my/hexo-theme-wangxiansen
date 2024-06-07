@@ -1,18 +1,41 @@
 #tag #tag-page-tags 
   display: flex
-  flex-flow: row wrap
+  flex-direction: row
+  flex-wrap: wrap
+  margin: 0
+  margin-bottom: 0.5rem
+  z-index: 1
+  width: 100%
+  padding: 1rem 0rem
+  left: 0
+  top: 0
+  max-height: 64px
+  overflow: hidden
+  backdrop-filter: saturate(180%) blur(20px)
+  transition: 0.1s ease-out
++maxWidth768()
+  #tag #tag-page-tags 
+    display: none;
 
+
+#tag #tag-page-tags:hover
+  max-height: 1000px
+  transition: 0.3s ease-out
+  background: var(--anzhiyu-maskbgdeep)
+  
 #tag #tag-page-tags a 
-  line-height: 1.6
+  padding: 0.1rem 0.5rem
+  margin: 0.25rem 0.25rem
+  border-radius: 8px
+  color: var(--anzhiyu-fontcolor) !important
+  border: var(--style-border-always)
   display: flex
   align-items: center
-  color: var(--anzhiyu-fontcolor) !important
-  padding: 0.1rem 0.5rem
-  margin: 0.25rem
-  border-radius: 8px
-  border: var(--style-border-always)
+  background: var(--anzhiyu-card-bg)
+  transition: all 0.3s ease-out 0s
 
-  &.selected 
+  &.selected
+    order: -1;
     box-shadow: var(--anzhiyu-shadow-theme)
     color: var(--anzhiyu-white) !important
     background: var(--anzhiyu-theme)
@@ -43,7 +66,7 @@
 
 #tag #tag-page-tags a 
   font-family: $font-family
-  font-size: 0.9em
+  font-size: 1em
 
 #tag #tag-page-tags a:hover 
   box-shadow: var(--anzhiyu-shadow-theme)

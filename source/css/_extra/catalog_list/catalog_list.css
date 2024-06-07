@@ -2,6 +2,7 @@
 #catalog-bar {
   border-radius: var(--anzhiyu-border-radius);
   display: flex;
+  overflow-y: hidden;
   border: var(--anzhiyu-border-radius);
   margin-bottom: 1rem;
   justify-content: flex-start;

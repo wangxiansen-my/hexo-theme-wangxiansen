@@ -55,9 +55,54 @@ div#archive {
 
 /* 标签页面 */
 div#tag {
-  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--anzhiyu-shadow-border);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background: var(--anzhiyu-card-bg);
+  border: var(--style-border);
+  align-self: flex-start;
+  animation: slide-in 0.6s 0.1s backwards;
+  position: relative;
 }
 
+.is-center {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center
+}
+
+#page .tag-cloud-list a {
+    display: flex;
+    width: fit-content;
+    color: var(--heo-fontcolor)!important;
+    font-size: 1.4em!important;
+    padding: .2em .5em;
+    background: var(--heo-card-bg);
+    margin: .5em .5em;
+    border-radius: 12px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    border: var(--style-border-always);
+    box-shadow: var(--heo-shadow-border);
+    align-items: center
+}
+
+.category-lists span.tagsPageCount {
+	padding: 4px 6px;
+    background: var(--anzhiyu-secondbg);
+    border: var(--style-border-always);
+    min-width: 22.5px;
+    display: inline-block;
+    border-radius: 4px;
+    line-height: .6rem;
+    text-align: center;
+    font-size: .7rem;
+    color: var(--anzhiyu-fontcolor);
+    margin-left: 4px
+}
 /* 分类页面 */
 div#category {
   background: rgba(255, 255, 255, 0.9);

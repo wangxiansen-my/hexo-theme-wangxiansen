@@ -94,7 +94,7 @@ module.exports.cacheRules = {
     search: false,
     match: (url, $eject) => {
       const allowedHost = $eject.domain;
-      const allowedPaths = ["/404.html", "/css/index.css"];
+      const allowedPaths = ["/js/boysec/comment_barrage.js", "/js/boysec/random_friends_post.js", "/js/boysec/right_click_menu.js", "/js/search/local-search.js", "/js/main.js", "/js/utils.js", "/js/tw_cn.js", "/WechaOA"];
       return url.host === allowedHost && allowedPaths.includes(url.pathname);
     },
   },

@@ -21,19 +21,31 @@ nav:
   travelling: true
   clock: false
   menu:
-    - title: 网页
+    - title: 个人
       item:
-        - name: 博客
-          link: https://www.boysec.cn/
-          icon: https://images.boysec.cn/medias/avatar.jpg
         - name: 安全文库
           link: https://wiki.boysec.cn/
           icon: https://wiki.boysec.cn/image/home.svg
+        - name: BugCrowd监控
+          link: /bugcrowd.html
+          icon: https://images.boysec.cn/images/202404261636474.svg
+        - name: Hackerone监控
+          link: /hackerone.html
+          icon: https://images.boysec.cn/images/202404261635730.jpg
     - title: 项目
       item:
         - name: 软件下载
           link: /tools.html
           icon: https://images.boysec.cn/images/202212061116565.png
+        - name: 编码工具
+          link: /encoding/
+          icon: https://images.boysec.cn/images/202403131410962.png
+        - name: 音乐解锁
+          link: /unlock-music/
+          icon: https://www.boysec.cn/unlock-music/img/icons/favicon-32x32.png
+        - name: JsFuck
+          link: /jsfuck/
+          icon: https://images.boysec.cn/images/202405061433300.png
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -194,9 +206,9 @@ post_meta:
 # 主色调相关配置
 mainTone:
   enable: true # true or false 文章是否启用获取图片主色调
-  mode: cdn # cdn/api/both cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取
+  mode: api # cdn/api/both cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取
   # 项目地址：https://github.com/anzhiyu-c/img2color-go
-  api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
+  api: https://api.qjqq.cn/api/Imgcolor?img= # mode为api时可填写
   cover_change: true # 整篇文章跟随cover修改主色调
 
 # wordcount (字数统计)
@@ -418,7 +430,7 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: 
+  envId:
   region: 
   visitor: false
   option:
@@ -539,7 +551,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
+baidu_analytics: 
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -812,8 +824,8 @@ aside:
     color: false
     sort_order: # Don't modify the setting unless you know how it works
     highlightTags:
-      # - Hexo
-      # - 前端
+      - Kubernetes
+      - Linux
   card_archives:
     enable: true
     type: monthly # yearly or monthly
@@ -1029,7 +1041,7 @@ home_top:
   enable: true # 开关
   timemode: date #date/updated
   title: 知识分享
-  subTitle: 运维安全。
+  subTitle: 安全运维。
   siteText: BOYSEC.CN
   category:
     - name: Linux
@@ -1048,7 +1060,7 @@ home_top:
       class: green
       icon: anzhiyu-icon-book
   default_descr: 再怎么看我也不知道怎么描述它的啦！
-  swiper:
+  swiper:      # 右侧循环列表（在文章的front matter中添加“recommend: true”）
     enable: false
     swiper_css: https://images.boysec.cn/css/swiper-bundle.min.css #swiper css依赖
     swiper_js: https://images.boysec.cn/js/swiper-bundle.min.js #swiper js依赖
@@ -1062,9 +1074,9 @@ home_top:
 friends_vue:
   enable: true
   vue_js: https://images.boysec.cn/js/friends-v1.1.2.js
-  apiurl:  # 朋友圈后端地址
+  apiurl: https://friends.boysec.cn/ # 朋友圈后端地址
   top_tips: 使用 友链朋友圈 订阅友链最新文章
-  top_background: 
+  top_background: https://images.boysec.cn/tour/20220227151827.jpg
 
 # 深色模式粒子效果canvas
 universe:
@@ -1118,7 +1130,7 @@ music_page_default: nav_music
 # 评论匿名邮箱
 visitorMail:
   enable: true
-  mail: any@boysec.cn
+  mail: 
 
 # ptool 文章底部工具
 ptool:
